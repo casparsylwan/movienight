@@ -1,0 +1,86 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    border: 1px solid black;
+    min-height: 100vh;
+    background: #111;
+}
+
+#movie, #night{
+    
+    
+    padding: 2rem;
+    height: 8rem;
+    margin-top: 2rem;
+    fill:transparent;
+    stroke:#0ff;
+    -webkit-filter: drop-shadow(12px 12px 12px rgba(255,0,0,0.5));      
+    filter: drop-shadow(12px 12px 12px rgba(255,0,0,0.5));  
+    
+
+    animation: fill 6s ease-in-out 4s forwards;
+    
+}
+
+
+
+#movie path, #night path{
+
+    
+    stroke-dasharray: 400%;
+   
+    stroke-dashoffset:400%;
+
+    -webkit-filter: drop-shadow(12px 42px 42px rgba(255,0,0,0.5));      
+    filter: drop-shadow(12px 12px 7px rgba(0,199,199,0.5));  
+  }
+
+  #movie path:nth-child(2n-1), #night path:nth-child(2n){
+
+    animation: line-anim 10s ease-in forwards;
+
+  }
+
+  #movie path:nth-child(2n), #night path:nth-child(2n-1){
+
+    animation: line-anim 8s ease-in forwards 2s;
+
+  }
+
+  .border{
+
+    display: flex;
+    flex-direction: column;
+
+    animation: borderfill 8s ease-in forwards 2s;
+  }
+
+
+@keyframes line-anim{
+    0%{ stroke-dashoffset: 400%;}
+    20%{ stroke-dashoffset: 200%;}
+    80%{stroke-dashoffset: 300%;}
+    100%{stroke-dashoffset: 0%;}
+  }
+
+  @keyframes fill {
+    0%{ fill: transparent; }
+    20%{ fill:#ff0; }
+    40%{ fill: transparent;}
+    50%{ fill:#fff;}
+    80%{ fill: transparent; }
+    100%{ fill: #fff;}
+  }
+
+
+  @keyframes borderfill {
+    0%{ border: double 0px #fff;}
+    20%{ border: double 0.5px #fff;}
+    40%{ border: double 4px #fff;}
+    50%{ border: double 17px #fff;}
+    80%{ border: double 1px #fff;}
+    100%{ border: double 4px #fff;}
+  }
