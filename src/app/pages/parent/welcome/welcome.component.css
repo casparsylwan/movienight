@@ -35,7 +35,7 @@
     stroke-dashoffset:400%;
 
     -webkit-filter: drop-shadow(12px 42px 42px rgba(255,0,0,0.5));      
-    filter: drop-shadow(12px 12px 7px rgba(0,199,199,0.5));  
+    filter: drop-shadow(0px 0px 0px rgba(0,199,199,0.5));  
   }
 
   #movie path:nth-child(2n-1), #night path:nth-child(2n){
@@ -70,9 +70,11 @@
     0%{ fill: transparent; }
     20%{ fill:#ff0; }
     40%{ fill: transparent;}
-    50%{ fill:#fff;}
+    100%{ fill:#fff;}
+    /*
     80%{ fill: transparent; }
     100%{ fill: #fff;}
+    */
   }
 
 
