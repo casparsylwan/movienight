@@ -75,12 +75,20 @@
       
     font-family: 'Lato';
     color:#fff;
-    font-size: 1.5rem;
+    font-size: 2rem;
       
     text-shadow: #0ff 0 0 10px, #FF0000 5px 5px 5px;
     filter: glow(color=#EE0000, strength=3);
 
+    transition: all 2s ease;
+
     
+  }
+
+  .front-nav>a:hover{
+      transform: scale(1.1);
+      text-shadow: #0ff 0 0 30px, #FF0000 15px 15px 15px;
+
   }
 
   .front-nav a:nth-child(1){
@@ -118,6 +126,11 @@
         height: 4rem;
         margin-top: 0.5rem;
         
+    }
+
+    .front-nav>a{
+        
+        font-size: 1.5rem;
     }
 
 
