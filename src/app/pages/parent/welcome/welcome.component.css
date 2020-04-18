@@ -58,6 +58,19 @@
     animation: borderfill 8s ease-in forwards 2s;
   }
 
+  @media screen and (max-width: 550px) {
+
+    #movie, #night{
+    
+        height: 4rem;
+        margin-top: 0.5rem;
+        
+    }
+
+
+
+  }
+
 
 @keyframes line-anim{
     0%{ stroke-dashoffset: 400%;}
