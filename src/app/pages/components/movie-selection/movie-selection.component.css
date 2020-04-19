@@ -76,9 +76,20 @@
 
     .left{
        
-        
-        padding: 3%;
+        height: fit-content;
+        padding: 1rem;
     }
+
+    .left span{
+        padding: 0.5rem;
+    }
+
+    .r-top, .r-bottom{
+        
+        height: fit-content;
+    }
+    
+    
 }
 
 
