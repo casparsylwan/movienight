@@ -1,1 +1,26 @@
-<p>topnav works!</p>
+<div class="wrapper-temp">
+    <div (click)='openMenu()' [className]="box">
+        <div  
+            [className]="open">
+            <a 
+                [className]="link">HEM</a>
+        </div>
+        <div
+            [className]="open">
+            <a [className]="link">RESTAURAN</a>
+        </div>
+        <div
+            [className]="open">
+            <a 
+                [className]="link">
+                BIO BILJETER
+            </a>   
+        </div>
+    </div>
+    <!--[ngClass]="open ? 'line open' : 'line close'"
+        [ngClass]="{'line': open=='none', 'line open':open=='true', 'line close': open=='false' }"
+    -->
+
+
+
+</div>
