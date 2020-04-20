@@ -11,13 +11,18 @@
         </span>
         <span>
              ute!
-        </span>
-        
-        
-    
+        </span>    
     </div>
     <div class="right">
         <div class="r-top"></div>
         <div class="r-bottom"></div>
+    </div>
+    <div class="down" *ngIf="!(numberOfTicketChoosen)">
+
+        <div class="movie-bar" *ngFor="let img of movieInfo.movies; let i = index">
+            <span (click)="showTrailer(i)">
+                <img [src]="img.img" [alt]="img.name">
+            </span>
+        </div>
     </div>
 </div>
