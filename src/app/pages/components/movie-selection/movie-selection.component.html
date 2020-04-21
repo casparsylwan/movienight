@@ -1,28 +1,38 @@
 <div class="wrapper-movie-selection">
-    <div class="left">
-        <span>
-            Bio  
-        </span>
-        <span>
-            Middag en   
-        </span>
-        <span>
-            hel kväll    
-        </span>
-        <span>
-             ute!
-        </span>    
-    </div>
-    <div class="right">
-        <div class="r-top"></div>
-        <div class="r-bottom"></div>
-    </div>
-    <div class="down" *ngIf="!(numberOfTicketChoosen)">
+    <div class="top">
+        <div class="left">
+            <span>
+                Bio
+            </span>
+            <span>
+                Middag 
+            </span>
+            <span>
+              en  hel kväll
+            </span>
+            <span>
+                ute!
+            </span>
+        </div>
+        <div class="right">
+            <div class="ticket">
 
+            </div>
+            <div class="ticket">
+
+            </div>
+            <div class="ticket">
+
+            </div>       
+        </div>
+    </div>
+    
+    <div class="down" *ngIf="!(numberOfTicketChoosen)">
         <div class="movie-bar" *ngFor="let img of movieInfo.movies; let i = index">
             <span (click)="showTrailer(i)">
                 <img [src]="img.img" [alt]="img.name">
             </span>
         </div>
     </div>
+    
 </div>
