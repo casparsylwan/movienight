@@ -30,8 +30,10 @@ export class MovieSelectionComponent implements OnInit {
   left:string = "left";
   right:string = "right";
   text:string = "text";
-  mobilvideo:string = "mobilvideo"
-  
+  mobilvideo:string = "mobilvideo";
+  bigTrailer:string = "big-trailer";
+  mobilTrailer:string =" mobil-trailer";
+  mobilDesc:string = "mobil-desc";
   
   
   

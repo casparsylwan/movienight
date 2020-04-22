@@ -16,6 +16,10 @@
     display: none;
 }
 
+.mobile-trailer{
+    display: none;
+}
+
 /*----------Glowing-----------*/
 
 .left{
@@ -93,7 +97,7 @@
 
 }
 
-.left.video span{
+.left.video .text{
     
     font-size: 0rem;
     margin: 0rem 0rem;
@@ -127,6 +131,24 @@
     width: 100%;
     z-index: 0;
 
+}
+
+/*---Trailer-text---*/
+
+.big-trailer h2{
+
+    color:#fff;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+
+}
+
+.big-trailer{
+    color:#fff;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    padding: 1rem;
 }
 
 
@@ -180,7 +202,7 @@ img:hover{
         
     }
 
-    .left span{
+    .left .text{
         padding: 0.3rem;
         font-size: 3rem;
     }
@@ -199,7 +221,7 @@ img:hover{
 
     }
 
-    .left.video span{
+    .left.video .text{
 
         padding: 0.0rem;
         font-size: 0rem;
@@ -217,6 +239,10 @@ img:hover{
     }
 
     .right{
+        display: none;
+    }
+
+    .big-trailer{
         display: none;
     }
 
@@ -256,9 +282,42 @@ img:hover{
     .mobilvideo{
         display: inline-block;
         width: 100%;
+
+        color:#fff;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        text-align: center;
+
     }
+
+    .mobile-trailer{
+        display: inline-block;
+        background-color: black;
+        padding-bottom: 2rem;
+    }
+
+    .mobil-desc h2{
+
+        text-align: center;
+        font-size: 2rem;
+        color: #fff;
+
+    }
+
+    .mobil-desc{
+
+        
+
+        color:#fff;
+        font-size: 1.2rem;
+        line-height: 2rem;
+        padding: 1rem;
+
+    }
+
     
 }
+
 
 
 
