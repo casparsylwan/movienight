@@ -346,12 +346,13 @@ img:hover{
        
         height: fit-content;
         padding: 1rem;
+        margin: 0rem 0 3rem 0;
         
     }
 
     .left .text{
         padding: 0.2rem;
-        font-size: 3rem;
+        font-size: 4rem;
         
     }
 
@@ -361,8 +362,8 @@ img:hover{
     }
 
     img{
-    height: 180px;
-    width: 120px;
+    height: 210px;
+    width: 140px;
     transition: transform ease-out 500ms;
 }
 
