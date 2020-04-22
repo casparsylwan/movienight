@@ -7,13 +7,15 @@
 
 .top{
     display: flex;
+    min-height: 20rem;
+    
     
 }
 
 /*----------Glowing-----------*/
 
 .left{
-    height: 20rem;
+    
     width: 100%;
     background-color: #000;
     
@@ -76,7 +78,7 @@
 
     
     width:50%;
-    height: 100%;
+    
     background-color: #000;
     
 }
@@ -172,7 +174,7 @@ img:hover{
 
     .left{
        
-        height: fit-content;
+       
         flex-direction: column;
         padding: 1rem;
         
@@ -181,6 +183,27 @@ img:hover{
     .left span{
         padding: 0.3rem;
         font-size: 3rem;
+    }
+
+    /*----Video---------*/
+
+    .top{
+
+        min-height: 10rem;
+
+    }
+
+    .left.video{
+
+        padding: 0rem;
+
+    }
+
+    .left.video span{
+
+        padding: 0.0rem;
+        font-size: 0rem;
+
     }
 }
 
@@ -222,6 +245,11 @@ img:hover{
     img:active{
     transform: scale(1.2);
 }
+
+    .top{
+    min-height: 2rem;
+    background-color: black;
+    }
     
 }
 
