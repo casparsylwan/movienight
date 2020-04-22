@@ -28,9 +28,20 @@
                     picture-in-picture" allowfullscreen>
                 </iframe>
             </div>
-            <input  *ngIf="state==1" class="numberOfTickets" type="date" [(ngModel)]="movieDate">
-            <div *ngIf="state==1" class="display-date big">
+            <input  *ngIf="state==1 && !(dateSetBoolean)" class="numberOfTickets" type="date" [(ngModel)]="movieDate">
+            <div *ngIf="state==1 && !(dateSetBoolean)" class="display-date big">
                 <span (click)="setDateAndTime(time)" *ngFor="let time of showTmes; let i = index"> {{ time }}:00</span>
+            </div>
+             <!--Input number of tickets-fullscreen-->
+             <div *ngIf="(state==1) && !(numberOfTicketChoosen) && (dateSetBoolean)" class="howmany-big">
+                <span >{{ orderText[0] + movieName + " "+  orderText[1] + " " + ticketprice}}&nbsp;kr </span>
+                <span *ngIf="(dateSetBoolean)" >  {{ orderText[2]}} </span>
+                <div *ngIf=" (dateSetBoolean)" class="btn-input">
+                    <input type="number" class="numberOfTickets" min="1" max="20" value="1" [(ngModel)]="tickets" />
+                    <button (click)="getNumberOfTickets()" class="tickets">
+                        skicka
+                    </button>            
+                </div>
             </div>                   
         </div>
     </div>
@@ -53,10 +64,23 @@
                 picture-in-picture" allowfullscreen>
             </iframe>
         </div>
-        <input  *ngIf="state==1" class="numberOfTickets" type="date" [(ngModel)]="movieDate">
-            <div *ngIf="state==1" class="display-date small">
+        <!--Input for date and time for tickets-->
+        <input  *ngIf="state==1 && !(dateSetBoolean)" class="numberOfTickets" type="date" [(ngModel)]="movieDate">
+            <div *ngIf="state==1 && !(dateSetBoolean)" class="display-date small">
                 <span (click)="setDateAndTime(time)" *ngFor="let time of showTmes; let i = index"> {{ time }}:00</span>
             </div> 
+            <!--Input number of tickets-mobile-->
+            <div *ngIf="(state==1) && !(numberOfTicketChoosen) && (dateSetBoolean)" class="howmany-big">
+                <span >{{ orderText[0] + movieName + " "+  orderText[1] + " " + ticketprice}}&nbsp;kr </span>
+                <span *ngIf="(dateSetBoolean)" >  {{ orderText[2]}} </span>
+                <div *ngIf=" (dateSetBoolean)" class="btn-input">
+                    <input type="number" class="numberOfTickets" min="1" max="20" value="1" [(ngModel)]="tickets" />
+                    <button (click)="getNumberOfTickets()" class="tickets">
+                        skicka
+                    </button>            
+                </div>
+            </div>
+
         <!--Description mobil-->
         <div *ngIf="state===1" class="mobile-trailer">
             <span *ngIf="state==1" [className]="mobilDesc" ><h2>{{  movieName  }}</h2>  {{ movieDesc }} </span>

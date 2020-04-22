@@ -46,6 +46,8 @@ export class MovieSelectionComponent implements OnInit {
   //Tickets
   numberOfTicketChoosen:boolean = false;
 
+  //Messages
+  orderText:string[] = ["Biljetter till ", "Kostar", "Hur många är ni?"];
   
 
   constructor(private sanitizer: DomSanitizer,
@@ -72,8 +74,6 @@ export class MovieSelectionComponent implements OnInit {
     this.movieDesc = this.movieInfo.movies[index].desc;
   //  this.reload = !this.reload;
 
-
-
   }
 
 
@@ -83,8 +83,10 @@ export class MovieSelectionComponent implements OnInit {
     this.time = " klockan: " + i;
     this.dateSetBoolean = true;
 
-    
+  }
 
+  public getNumberOfTickets(){
+    console.log("todo");
   }
 
 
