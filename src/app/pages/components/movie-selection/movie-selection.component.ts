@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { DatePipe } from '@angular/common'
 //Models
 import { movies } from '../../../models/movies';
 
@@ -10,6 +11,8 @@ import { movies } from '../../../models/movies';
 })
 export class MovieSelectionComponent implements OnInit {
 
+  dateTime = new Date();
+
   //Movie variables
   movieInfo:movies = new movies();
   urlSafe: SafeResourceUrl;
@@ -18,7 +21,7 @@ export class MovieSelectionComponent implements OnInit {
   ticketprice:number;
   tickets: number = 1;
   showTmes:string[];
-  movieDate:string =  "2020-04-25";
+  movieDate:string  //"2020-04-25";
   time:string = "";
   
   //State variables
@@ -45,9 +48,12 @@ export class MovieSelectionComponent implements OnInit {
 
   
 
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor(private sanitizer: DomSanitizer,
+              public datepipe: DatePipe) { }
 
   ngOnInit(): void {
+   // let today = new Date(this.dateTime.getFullYear(), this.dateTime.getMonth(), this.dateTime.getDate());
+    this.movieDate = this.datepipe.transform( new Date() , 'yyyy-MM-dd');
   }
 
   public showTrailer(index:number){
