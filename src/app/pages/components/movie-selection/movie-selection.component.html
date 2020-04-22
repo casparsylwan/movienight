@@ -29,7 +29,7 @@
                 </iframe>
             </div>
             <input  *ngIf="state==1" class="numberOfTickets" type="date" [(ngModel)]="movieDate">
-            <div *ngIf="state==1" class="display-date-big">
+            <div *ngIf="state==1" class="display-date big">
                 <span (click)="setDateAndTime(time)" *ngFor="let time of showTmes; let i = index"> {{ time }}:00</span>
             </div>                   
         </div>
@@ -54,7 +54,7 @@
             </iframe>
         </div>
         <input  *ngIf="state==1" class="numberOfTickets" type="date" [(ngModel)]="movieDate">
-            <div *ngIf="state==1" class="display-date-big">
+            <div *ngIf="state==1" class="display-date small">
                 <span (click)="setDateAndTime(time)" *ngFor="let time of showTmes; let i = index"> {{ time }}:00</span>
             </div> 
         <!--Description mobil-->

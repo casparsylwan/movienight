@@ -199,14 +199,22 @@ img:hover{
 .numberOfTickets{
     margin: 0 50%;
     transform: translateX(-50%);
-    border: #fff 1px solid;
+    
 }
 
-.display-date-big{
+.display-date{
     display: flex;
     justify-content: space-evenly;
-    border: #fff 1px solid;
     color:#fff;
+}
+
+.display-date.big{
+    font-size: 2rem;
+}
+
+.display-date.small{
+    font-size: 1.5rem;
+
 }
 
 @media screen and (max-width: 1000px){
