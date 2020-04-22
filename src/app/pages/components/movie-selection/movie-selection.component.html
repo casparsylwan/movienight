@@ -14,7 +14,7 @@
             <span [className]="text">
                 ute!
             </span>
-            
+            <!--Description fullscreen-iframe fullscreen-->
             <span [className]="bigTrailer"><h2>{{  movieName  }}</h2>  {{ movieDesc }} </span>
         </div>
         <!--Neon Light- Stop-->
@@ -28,7 +28,10 @@
                     picture-in-picture" allowfullscreen>
                 </iframe>
             </div>
-                   
+            <input  *ngIf="state==1" class="numberOfTickets" type="date" [(ngModel)]="movieDate">
+            <div *ngIf="state==1" class="display-date-big">
+                <span (click)="setDateAndTime(time)" *ngFor="let time of showTmes; let i = index"> {{ time }}:00</span>
+            </div>                   
         </div>
     </div>
     
@@ -39,7 +42,7 @@
             </span>
         </div>
     </div>
-
+    <!--Mobile iframe-->
     <div  [className]="mobilvideo">
 
         <div *ngIf="state===1" class="iframe">
@@ -50,12 +53,14 @@
                 picture-in-picture" allowfullscreen>
             </iframe>
         </div>
+        <input  *ngIf="state==1" class="numberOfTickets" type="date" [(ngModel)]="movieDate">
+            <div *ngIf="state==1" class="display-date-big">
+                <span (click)="setDateAndTime(time)" *ngFor="let time of showTmes; let i = index"> {{ time }}:00</span>
+            </div> 
+        <!--Description mobil-->
         <div *ngIf="state===1" class="mobile-trailer">
             <span *ngIf="state==1" [className]="mobilDesc" ><h2>{{  movieName  }}</h2>  {{ movieDesc }} </span>
         </div>
                
-    </div>
-
-    
-    
+    </div>   
 </div>

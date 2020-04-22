@@ -23,6 +23,7 @@ export class MovieSelectionComponent implements OnInit {
   
   //State variables
   state:number = 0;
+  dateSetBoolean:boolean = false;
   
   //ClassNames
   
@@ -66,6 +67,17 @@ export class MovieSelectionComponent implements OnInit {
   //  this.reload = !this.reload;
 
 
+
+  }
+
+
+  setDateAndTime(i:number){
+
+    console.log(i +" " + this.movieDate );
+    this.time = " klockan: " + i;
+    this.dateSetBoolean = true;
+
+    
 
   }
 

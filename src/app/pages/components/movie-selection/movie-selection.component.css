@@ -192,6 +192,22 @@ img:hover{
     
 }
 
+
+/*--------Tickets input------------*/
+
+.numberOfTickets{
+    margin: 0 50%;
+    transform: translateX(-50%);
+    border: #fff 1px solid;
+}
+
+.display-date-big{
+    display: flex;
+    justify-content: space-evenly;
+    border: #fff 1px solid;
+    color:#fff;
+}
+
 @media screen and (max-width: 1000px){
 
     .left{
