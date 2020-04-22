@@ -7,6 +7,7 @@
 
 .top{
     display: flex;
+    
 }
 
 /*----------Glowing-----------*/
@@ -22,8 +23,12 @@
     justify-content: center;
     
     
+
+    transition: width 1s ease-in;
+    
+    
 }
-.left span{
+.left .text{
     font-family: 'Pacifico', cursive;
     color:#fff;
     font-size: 5rem;
@@ -36,37 +41,89 @@
     
 
     text-shadow: 0 0 1px #FF0, 0 0 1px #FF0, 0 0 15px #F00, 0 0 50px #0099b9, 0 0 10px #00FFaa, 0 0 10px #ff0000;
+
+    transition: font-size 0.5s;
 }
 
-.left span:nth-child(1){
+.left .text:nth-child(1){
 
     
     animation: glowing ease-in 16s 1;
 }
 
-.left span:nth-child(2){
+.left .text:nth-child(2){
 
     animation: glowing ease-in 4s 4;
 }
 
-.left span:nth-child(3){
+.left .text:nth-child(3){
 
     white-space: nowrap;
     animation: glowing ease 8s 2;
     
 }
 
-.left span:nth-child(4){
+.left .text:nth-child(4){
 
     animation: glowing ease 8s 2 4s forwards;
     
 }
 
-/*---------- glowing stop     -----------------*/
+/*---------- glowing stop ,video start    -----------------*/
+
+/*--Making space---*/
+.left.video{
+
+    
+    width:50%;
+    height: 100%;
+    background-color: #000;
+    
+}
+
+.right.video{
+
+    width: 50%;
+    
+    /*
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+    */
+}
+
+.left.video span{
+    
+    font-size: 0rem;
+    margin: 0rem 0rem;
+    padding: 0rem;
+
+}
 
 .right{
 
-    border: black solid 1px;
+    background-color: #000;
+
+}
+
+
+
+.iframe{
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: 0;
+    
+}
+
+.iframe iframe{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
 
 }
 
@@ -75,15 +132,11 @@
 /*------    ------------*/
 
 .down{
-
-   
       
     width: 100%;
     overflow: auto;
     white-space: nowrap;
-    
-    
-    
+        
 }
 
 .movie-bar{
@@ -103,7 +156,7 @@ img{
     z-index: 1;  
     height: 360px;
     width: 240px;
-   padding: 0 0.5rem 0 0.5rem;
+    padding: 0 0.5rem 0 0.5rem;
     cursor: pointer;
     transition: transform ease-out 500ms;
 }

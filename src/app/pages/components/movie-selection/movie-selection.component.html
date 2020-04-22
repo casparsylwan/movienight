@@ -1,20 +1,32 @@
 <div class="wrapper-movie-selection">
-    <div class="top">
-        <div class="left">
-            <span>
+    <!--Neon Light- Start-->
+    <div [className]="top">
+        <div [className]="left">
+            <span [className]="text">
                 Bio
             </span>
-            <span>
+            <span [className]="text">
                 Middag 
             </span>
-            <span>
+            <span [className]="text">
               en  hel kväll
             </span>
-            <span>
+            <span [className]="text">
                 ute!
             </span>
+            a
         </div>
-        <div class="right">
+        <!--Neon Light- Stop-->
+        <div  [className]="right">
+
+            <div *ngIf="state===1" class="iframe">
+                <iframe [src]="urlSafe" frameborder="0" allow="accelerometer;
+                    autoplay;
+                    encrypted-media; 
+                    gyroscope; 
+                    picture-in-picture" allowfullscreen>
+                </iframe>
+            </div>
                    
         </div>
     </div>
