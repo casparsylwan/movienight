@@ -293,7 +293,7 @@ img:hover{
     .mobile-trailer{
         display: inline-block;
         background-color: black;
-        padding-bottom: 2rem;
+        padding:0 0.5rem 2rem 0.5rem;
     }
 
     .mobil-desc h2{

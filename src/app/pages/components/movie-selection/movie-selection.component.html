@@ -50,7 +50,7 @@
                 picture-in-picture" allowfullscreen>
             </iframe>
         </div>
-        <div class="mobile-trailer">
+        <div *ngIf="state===1" class="mobile-trailer">
             <span *ngIf="state==1" [className]="mobilDesc" ><h2>{{  movieName  }}</h2>  {{ movieDesc }} </span>
         </div>
                
