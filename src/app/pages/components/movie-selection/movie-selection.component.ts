@@ -41,6 +41,7 @@ export class MovieSelectionComponent implements OnInit {
   //ClassNames
   
   top:string ="top";
+  down:string = "down"
   left:string = "left";
   right:string = "right";
   text:string = "text";
@@ -72,6 +73,8 @@ export class MovieSelectionComponent implements OnInit {
     console.log("todo");
     //State change
     this.state = 1;
+    this.top = "top video"
+    this.down = "down video"
     this.left  = "left video"
     this.right = "right video"
     this.text = "text video"

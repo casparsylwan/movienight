@@ -46,7 +46,7 @@
         </div>
     </div>
     
-    <div class="down" *ngIf="!(numberOfTicketChoosen)">
+    <div [className]="down" *ngIf="!(numberOfTicketChoosen)">
         <div class="movie-bar" *ngFor="let img of movieInfo.movies; let i = index">
             <span (click)="showTrailer(i)">
                 <img [src]="img.img" [alt]="img.name">

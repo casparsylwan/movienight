@@ -342,11 +342,14 @@ img:hover{
         display: none;
     }
 
+
+    
+
     .left{
        
         height: fit-content;
         padding: 1rem;
-        margin: 0rem 0 0rem 0;
+        margin: 0rem 0 1rem 0;
         
     }
 
@@ -361,10 +364,13 @@ img:hover{
         height: fit-content;
     }
 
+    
+
     img{
     height: 240px;
     width: 160px;
     transition: transform ease-out 500ms;
+    
 }
 
     img:active{
@@ -374,6 +380,25 @@ img:hover{
     .top{
     min-height: 2rem;
     background-color: black;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid #fff ;
+    }
+
+    .top.video{
+
+        margin-bottom: 0rem;
+        border-bottom: 0px solid #fff ;
+
+    }
+
+
+    .down{
+        border-top: #fff solid 2px;
+        
+    }
+
+    .down.video{
+        border-top: #fff solid 0px;
     }
 
     .mobilvideo{
@@ -384,6 +409,9 @@ img:hover{
         font-size: 2rem;
         margin-bottom: 1rem;
         text-align: center;
+
+        
+        
 
     }
 
