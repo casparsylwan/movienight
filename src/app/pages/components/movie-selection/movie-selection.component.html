@@ -54,7 +54,9 @@
         </div>
     </div>
     <!--Mobile iframe-->
-    <div  [className]="mobilvideo">
+    <div  *ngIf="state===1
+          && !(numberOfTicketChoosen)" 
+                [className]="mobilvideo">
 
         <div *ngIf="state===1" class="iframe">
             <iframe [src]="urlSafe" frameborder="0" allow="accelerometer;

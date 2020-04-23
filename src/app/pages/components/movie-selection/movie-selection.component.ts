@@ -13,6 +13,8 @@ import { Customer } from '../../../models/Customer';
 export class MovieSelectionComponent implements OnInit {
   //Parent export
   @Output() customersEvent = new EventEmitter();
+  @Output() dateSetBooleanEvent = new EventEmitter();
+  @Output() numberOfTicketChoosenEvent = new EventEmitter();
 
   
   dateTime = new Date();
@@ -37,7 +39,9 @@ export class MovieSelectionComponent implements OnInit {
   //State variables
   state:number = 0;
   dateSetBoolean:boolean = false;
-  
+  numberOfTicketChoosen:boolean = false;
+
+
   //ClassNames
   
   top:string ="top";
@@ -50,12 +54,6 @@ export class MovieSelectionComponent implements OnInit {
   mobilTrailer:string =" mobil-trailer";
   mobilDesc:string = "mobil-desc";
   
-  
-  
-  
-
-  //Tickets
-  numberOfTicketChoosen:boolean = false;
 
   //Messages
   orderText:string[] = ["Biljetter till ", "Kostar", "Hur många är ni?"];
@@ -107,10 +105,16 @@ export class MovieSelectionComponent implements OnInit {
       customer.dateTime = this.movieDate;
       customer.orderList.push({type:'movie', name:this.movieName, price:this.ticketprice});
       customer.calcSum();
+      
       this.customers.push(customer);
+      console.log(this.customers)
     }
 
+    this.numberOfTicketChoosen = true;
     this.customersEvent.emit(this.customers);
+    this.dateSetBooleanEvent.emit(this.dateSetBoolean);
+    this.numberOfTicketChoosenEvent.emit(this.numberOfTicketChoosen);
+
   }
 
 
