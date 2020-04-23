@@ -362,8 +362,8 @@ img:hover{
     }
 
     img{
-    height: 210px;
-    width: 140px;
+    height: 240px;
+    width: 160px;
     transition: transform ease-out 500ms;
 }
 
