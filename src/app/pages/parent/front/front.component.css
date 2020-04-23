@@ -1,4 +1,9 @@
 .wrapper-main-front{
     background-color: #b17900;
-    min-height: 100vh;
+    
 }
+
+.container{
+    min-height: calc(100vh - 1rem);
+}
+

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  Output, EventEmitter } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { DatePipe } from '@angular/common'
 //Models
 import { movies } from '../../../models/movies';
+import { Customer } from '../../../models/Customer';
 
 @Component({
   selector: 'app-movie-selection',
@@ -10,8 +11,17 @@ import { movies } from '../../../models/movies';
   styleUrls: ['./movie-selection.component.css']
 })
 export class MovieSelectionComponent implements OnInit {
+  //Parent export
+  @Output() customersEvent = new EventEmitter();
 
+  
   dateTime = new Date();
+
+  //Customer variables
+  customers:Customer[] = new Array();
+
+
+
 
   //Movie variables
   movieInfo:movies = new movies();
@@ -51,7 +61,7 @@ export class MovieSelectionComponent implements OnInit {
   
 
   constructor(private sanitizer: DomSanitizer,
-              public datepipe: DatePipe) { }
+              private datepipe: DatePipe) { }
 
   ngOnInit(): void {
    // let today = new Date(this.dateTime.getFullYear(), this.dateTime.getMonth(), this.dateTime.getDate());
@@ -86,7 +96,18 @@ export class MovieSelectionComponent implements OnInit {
   }
 
   public getNumberOfTickets(){
-    console.log("todo");
+    
+
+    for(let i = 0; i<this.tickets; i++){
+      let customer:Customer = new Customer();
+      customer.movie = this.movieName;
+      customer.dateTime = this.movieDate;
+      customer.orderList.push({type:'movie', name:this.movieName, price:this.ticketprice});
+      customer.calcSum();
+      this.customers.push(customer);
+    }
+
+    this.customersEvent.emit(this.customers);
   }
 
 

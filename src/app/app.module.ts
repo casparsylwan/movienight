@@ -12,6 +12,7 @@ import { MovieSelectionComponent } from './pages/components/movie-selection/movi
 import { CinemaComponent } from './pages/components/cinema/cinema.component';
 import { RestaurantComponent } from './pages/components/restaurant/restaurant.component';
 import { CheckoutComponent } from './pages/components/checkout/checkout.component';
+import { FooterComponent } from './pages/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CheckoutComponent } from './pages/components/checkout/checkout.componen
     MovieSelectionComponent,
     CinemaComponent,
     RestaurantComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

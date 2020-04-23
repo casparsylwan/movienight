@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Customer } from '../../../models/Customer';
 
 @Component({
   selector: 'app-front',
@@ -6,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./front.component.css']
 })
 export class FrontComponent implements OnInit {
+ @Input() customers:Customer[];
 
   constructor() { }
 
