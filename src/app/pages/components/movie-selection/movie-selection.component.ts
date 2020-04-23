@@ -63,7 +63,6 @@ export class MovieSelectionComponent implements OnInit {
               private datepipe: DatePipe) { }
 
   ngOnInit(): void {
-   // let today = new Date(this.dateTime.getFullYear(), this.dateTime.getMonth(), this.dateTime.getDate());
     this.movieDate = this.datepipe.transform( new Date() , 'yyyy-MM-dd');
   }
 
@@ -115,6 +114,12 @@ export class MovieSelectionComponent implements OnInit {
     this.dateSetBooleanEvent.emit(this.dateSetBoolean);
     this.numberOfTicketChoosenEvent.emit(this.numberOfTicketChoosen);
 
+  }
+
+  public sendVariables(){
+    this.customersEvent.emit(this.customers);
+    this.dateSetBooleanEvent.emit(this.dateSetBoolean);
+    this.numberOfTicketChoosenEvent.emit(this.numberOfTicketChoosen);
   }
 
 

@@ -8,7 +8,9 @@ import { Customer } from '../../../models/Customer';
   styleUrls: ['./front.component.css']
 })
 export class FrontComponent implements OnInit {
- @Input() customers:Customer[];
+ customers:Customer[];
+ dateSetBoolean:boolean;
+ numberOfTicketChoosen:boolean;
 
   constructor() { }
 
