@@ -8,11 +8,16 @@
             *ngIf="!numberOfTicketChoosen">
         </app-movie-selection>
         <app-cinema 
-        [numberOfTicketChoosen]="numberOfTicketChoosen"
-        [dateSetBoolean]="dateSetBoolean"
-        [customers]="customers"
-        *ngIf="numberOfTicketChoosen"></app-cinema>
-        <app-restaurant *ngIf="false"></app-restaurant>
+            [numberOfTicketChoosen]="numberOfTicketChoosen"
+            [dateSetBoolean]="dateSetBoolean"
+            [customers]="customers"
+            (seatChoosenBoleanEvent)="seatChoosenBolean=$event"
+            (customersEvent)="customers=$event"
+            *ngIf="numberOfTicketChoosen && !seatChoosenBolean">
+        </app-cinema>
+        <app-restaurant 
+            *ngIf="seatChoosenBolean">
+        </app-restaurant>
         <app-checkout *ngIf="false"></app-checkout>
     </div>
     <app-footer></app-footer>

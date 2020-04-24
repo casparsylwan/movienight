@@ -25,10 +25,13 @@
 }
 
 .screen{
-    width: 75%;
+    width: 95%;
     height: 25rem;
     margin-top: -10rem;
     margin-bottom: 10rem;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
     background-color: #fff;
     border: solid black 1px;
     transform: perspective(15rem) rotateX(-10deg);
@@ -40,10 +43,6 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     column-gap: 5rem;
     row-gap: 1rem;
-
-    /*
-    transform: perspective(1rem) rotateX(1deg);
-    */
 }
 
 .seats{
@@ -84,7 +83,7 @@
 
         height: 15rem;
         
-        width: 75%;
+       
         transform: perspective(1rem) rotateX(-2deg);
     }
 
@@ -116,8 +115,8 @@
 
     .screen{
 
-        height: 10rem;
-        width: 75%;
+        height: 13rem;
+        
         margin-top: -5rem;
         margin-bottom: 5rem;
         transform: perspective(1rem) rotateX(-2deg);
@@ -128,7 +127,7 @@
     }
 
     .seats{
-        width: 2rem;
+        width: 2.2rem;
         height: 3rem;
     }
 }

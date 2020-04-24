@@ -13,13 +13,16 @@ export class FrontComponent implements OnInit {
   customers:Customer[];
   dateSetBoolean:boolean;
   numberOfTicketChoosen:boolean;
-
- 
+  seatChoosenBolean:boolean;
 
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  test(){
+    console.log(this.seatChoosenBolean);
   }
 
 }

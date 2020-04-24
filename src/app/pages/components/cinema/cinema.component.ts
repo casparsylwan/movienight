@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Customer }from './../../../models/Customer';
 import { Seat } from './../../../models/seat';
 
@@ -16,6 +16,8 @@ export class CinemaComponent implements OnInit {
   @Input() numberOfTicketChoosen:boolean;
   @Input() dateSetBoolean:boolean;
   @Input() customers:Customer[];
+  @Output() customersEvent = new EventEmitter();
+  @Output() seatChoosenBoleanEvent = new EventEmitter();
 
    //Classnames
    wrapper:string = "wrapper";
@@ -25,8 +27,9 @@ export class CinemaComponent implements OnInit {
    seats:string ="seats";
    seat:string = " seat";
 
-   //seats reserved variables
-   seatArray:Seat[] = new Array();
+  //navigation boleans
+  showOrder:boolean = false;
+  seatChoosenBolean:boolean = false
 
   constructor() { }
 
@@ -34,11 +37,21 @@ export class CinemaComponent implements OnInit {
     this.creatSeats()
   }
 
-  getSeats(seat:Seat, seatNumber:number){
+  public getSeats(seat:Seat, seatNumber:number){
     seat.occupeid = !seat.occupeid;
-  //  this.movieSeats[seatNumber-1].occupeid = !this.movieSeats[seatNumber-1].occupeid;
-    console.log(seat);
-    
+    console.log(this.movieSeats.filter(seat =>seat.occupeid).length);
+    let numberOfSeats = this.movieSeats.filter(seat =>seat.occupeid);
+    console.log(numberOfSeats);
+     if( numberOfSeats.length >=this.customers.length){
+        for(let i = 0; i<numberOfSeats.length;i++){
+          this.customers[i].seat = numberOfSeats[i].seat;
+        }
+        console.log(this.customers);
+        this.seatChoosenBolean = true;
+        console.log(this.seatChoosenBolean)
+        this.customersEvent.emit(this.customers);
+        this.seatChoosenBoleanEvent.emit(this.seatChoosenBolean);
+     }  
   }
 
   public creatSeats(){
