@@ -25,6 +25,7 @@
     width: 75%;
     height: 25rem;
     margin-top: -10rem;
+    margin-bottom: 10rem;
     background-color: #fff;
     border: solid black 1px;
     transform: perspective(15rem) rotateX(-10deg);
@@ -74,6 +75,7 @@
     .screen{
 
         height: 15rem;
+        
         width: 75%;
         transform: perspective(1rem) rotateX(-2deg);
     }
@@ -90,11 +92,8 @@
 @media screen and (max-width: 750px){
 
     .wrapper{
-        
-        height: 110vh;
-        
-        
-        
+        height: 120vh;
+           
     }
 
     .moviebox{
