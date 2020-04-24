@@ -1,7 +1,17 @@
-<div>
-    <p (click)="test()" >cinema works!</p>
-    <p>cinema works!</p>
-    <p>cinema works!</p>
-    <p>cinema works!</p>
-    <p>cinema works!</p>
+<div [className]="wrapper">
+    <div [className]="moviebox">
+        <div [className]="screen">
+
+        </div>
+        <div [className]="cinema">
+            <div [className]="seats" *ngFor="let seat of ' '.repeat(20).split(''); index as i">
+                <div  class="seat">
+                    <p> {{ i+1 }} </p>
+                    <p *ngIf="!!(i%4==0)"> &#9855; </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<!--(click)="getSeats( i+1)"-->

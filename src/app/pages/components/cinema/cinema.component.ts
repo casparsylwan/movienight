@@ -7,15 +7,26 @@ import { Customer }from './../../../models/Customer';
   styleUrls: ['./cinema.component.css']
 })
 export class CinemaComponent implements OnInit {
+  //Global navigation variables
   @Input() numberOfTicketChoosen:boolean;
   @Input() dateSetBoolean:boolean;
   @Input() customers:Customer[];
+
+   //Classnames
+   wrapper:string = "wrapper";
+   screen:string = "screen";
+   moviebox:string = "moviebox";
+   cinema:string = "cinema";
+   seats:string ="seats";
+   seat:string = " seat";
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  test(){
+  getSeats(seat:number){
+    console.log(seat);
     console.log(this.numberOfTicketChoosen)
     console.log(this.dateSetBoolean)
     console.log(this.customers)

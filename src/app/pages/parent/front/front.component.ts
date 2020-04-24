@@ -8,9 +8,14 @@ import { Customer } from '../../../models/Customer';
   styleUrls: ['./front.component.css']
 })
 export class FrontComponent implements OnInit {
- customers:Customer[];
- dateSetBoolean:boolean;
- numberOfTicketChoosen:boolean;
+ 
+ //Global navigation variables
+  customers:Customer[];
+  dateSetBoolean:boolean;
+  numberOfTicketChoosen:boolean;
+
+ 
+
 
   constructor() { }
 
