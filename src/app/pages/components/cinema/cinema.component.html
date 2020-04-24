@@ -1,11 +1,18 @@
 <div [className]="wrapper">
     <div [className]="moviebox">
         <div [className]="screen">
-
+            <ng-container *ngFor= "let seat of movieSeats">
+                <p *ngIf="seat.occupeid">
+                    Stol nummer : {{ seat.seat }}
+                </p>
+            </ng-container>
+            
         </div>
         <div [className]="cinema">
-            <div [className]="seats" *ngFor="let seat of ' '.repeat(20).split(''); index as i">
-                <div  class="seat">
+            <div [className]="seats" 
+            (click)="getSeats(seat, i+1)"
+            *ngFor="let seat of movieSeats; index as i">
+                <div [className]="seat.occupeid? 'seat taken' : 'seat'">
                     <p> {{ i+1 }} </p>
                     <p *ngIf="!!(i%4==0)"> &#9855; </p>
                 </div>

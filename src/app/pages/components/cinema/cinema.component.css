@@ -3,12 +3,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 180vh;
-    
+    height: fit-content;
+    padding-top: 30rem;
+    padding-bottom: 10rem;
     
     
     
 }
+
+
 
 .moviebox{
     margin: -25rem 0 1rem 0;
@@ -54,7 +57,7 @@
 
 
 .seat{
-    border: green solid 2px;
+    border: #000 solid 2px;
     background-color: green;
     border-bottom-left-radius: 100%;
     border-bottom-right-radius: 100%;
@@ -62,6 +65,11 @@
     width: 90%;
     height: 90%;
 }
+
+.seat.taken{
+    background-color: #f00;
+}
+
 @media screen and (max-width: 1200px){
 
     .moviebox{

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Customer }from './../../../models/Customer';
+import { Seat } from './../../../models/seat';
 
 @Component({
   selector: 'app-cinema',
@@ -7,6 +8,10 @@ import { Customer }from './../../../models/Customer';
   styleUrls: ['./cinema.component.css']
 })
 export class CinemaComponent implements OnInit {
+
+  movieSeats:Seat[] = new Array();
+
+
   //Global navigation variables
   @Input() numberOfTicketChoosen:boolean;
   @Input() dateSetBoolean:boolean;
@@ -20,16 +25,28 @@ export class CinemaComponent implements OnInit {
    seats:string ="seats";
    seat:string = " seat";
 
+   //seats reserved variables
+   seatArray:Seat[] = new Array();
+
   constructor() { }
 
   ngOnInit(): void {
+    this.creatSeats()
   }
 
-  getSeats(seat:number){
+  getSeats(seat:Seat, seatNumber:number){
+    seat.occupeid = !seat.occupeid;
+  //  this.movieSeats[seatNumber-1].occupeid = !this.movieSeats[seatNumber-1].occupeid;
     console.log(seat);
-    console.log(this.numberOfTicketChoosen)
-    console.log(this.dateSetBoolean)
-    console.log(this.customers)
+    
+  }
+
+  public creatSeats(){
+    for(let i=0; i<20; i++){
+      let seat:Seat = new Seat();
+      seat.seat = i+1;
+      this.movieSeats.push(seat);
+    }
   }
 
 }
