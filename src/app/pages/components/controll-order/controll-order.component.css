@@ -1,0 +1,62 @@
+.wrapper{
+    position: fixed;
+    top:0rem;
+    bottom: 0;
+    left:0rem;
+    right: 0;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: auto  3rem;
+    grid-template-rows: 3rem;
+    grid-template-areas: 
+    "order btn"
+    "order .";
+
+    transition: all 1s ease-in;
+    animation: enter 1s;
+}
+
+.wrapper.open{
+    transform: translateX( 0% );
+}
+
+.wrapper.close{
+    transform: translateX( calc(-100% + 3rem) );
+}
+.order{
+    grid-area: order;
+    background-color: rgba(64,64, 64, 0.5);
+    
+
+}
+
+.btn{
+    grid-area: btn;
+    margin-top: 2rem;
+    border-bottom-right-radius: 1rem;
+    border-top-right-radius: 1rem;
+    height: 10rem;
+    
+    background-color: rgba(64,64, 64, .5);
+}
+
+
+
+.folder{   
+    color:#ff0;
+    text-align: center;
+    line-height: 1.2rem;
+    padding:0rem 0rem 0rem 1rem;
+    font-size: large;
+    font-weight: bold;    
+    transform: rotate(90deg);
+}
+
+
+@keyframes enter{
+   0%{opacity: 0;}
+   100%{opacity: 1;}
+}
+
+
+

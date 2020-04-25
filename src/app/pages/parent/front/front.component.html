@@ -1,6 +1,10 @@
 <div class="wrapper-main-front">
     <div class="container">
         <app-topnav></app-topnav>
+        <app-controll-order
+            *ngIf="dateSetBoolean"
+        >
+        </app-controll-order>
         <app-movie-selection 
             (customersEvent)="customers=$event"
             (numberOfTicketChoosenEvent)="numberOfTicketChoosen=$event"
