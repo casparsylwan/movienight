@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Customer } from '../../../models/Customer';
 
@@ -10,7 +10,7 @@ import { Customer } from '../../../models/Customer';
 export class FrontComponent implements OnInit {
  
  //Global navigation variables
-  customers:Customer[];
+  customers:Customer[] = [];
   dateSetBoolean:boolean;
   numberOfTicketChoosen:boolean;
   seatChoosenBolean:boolean;
@@ -22,7 +22,7 @@ export class FrontComponent implements OnInit {
   }
 
   test(){
-    console.log(this.seatChoosenBolean);
+    
   }
 
 }

@@ -7,12 +7,15 @@ import { Customer } from 'src/app/models/Customer';
   styleUrls: ['./controll-order.component.css']
 })
 export class ControllOrderComponent implements OnInit {
-  @Input()  customers:Customer;
+  @Input()  customers:Customer[];
   @Output() customersEvent = new EventEmitter();
 
   
   order:string = "Öppna beställning";
   wrapper:string = "wrapper close";
+
+  //Customer var
+  totalSum:number= 0;
 
   constructor() { }
 
@@ -25,6 +28,7 @@ export class ControllOrderComponent implements OnInit {
 
       this.wrapper = "wrapper open";
       this.order = "Stäng beställning"
+      this.calcTotalSum();
 
     }else{
 
@@ -35,6 +39,13 @@ export class ControllOrderComponent implements OnInit {
 
   public passInfoToCOmponents(){
     this.customersEvent.emit(this.customers);
+  }
+
+  public calcTotalSum(){
+    this.totalSum = 0;
+    this.customers.forEach(customer => {
+      customer.calcSum();
+      this.totalSum += customer.totalSum});
   }
 
 }

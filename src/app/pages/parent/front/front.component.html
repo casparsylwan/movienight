@@ -1,13 +1,14 @@
-<div class="wrapper-main-front">
+<div (click)="test()" class="wrapper-main-front">
     <div class="container">
         <app-topnav></app-topnav>
-        <app-controll-order
-            *ngIf="dateSetBoolean"
+        <app-controll-order            
             [customers]="customers"
             (customersEvent)="customers=$event"
+            *ngIf="dateSetBoolean"
         >
         </app-controll-order>
-        <app-movie-selection 
+        <app-movie-selection
+            [customers]="customers" 
             (customersEvent)="customers=$event"
             (numberOfTicketChoosenEvent)="numberOfTicketChoosen=$event"
             (dateSetBooleanEvent)="dateSetBoolean=$event"

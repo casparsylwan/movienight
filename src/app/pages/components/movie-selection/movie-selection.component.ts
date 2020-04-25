@@ -1,4 +1,4 @@
-import { Component, OnInit,  Output, EventEmitter } from '@angular/core';
+import { Component, OnInit,  Output, EventEmitter, Input } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { DatePipe } from '@angular/common'
 //Models
@@ -15,12 +15,12 @@ export class MovieSelectionComponent implements OnInit {
   @Output() customersEvent = new EventEmitter();
   @Output() dateSetBooleanEvent = new EventEmitter();
   @Output() numberOfTicketChoosenEvent = new EventEmitter();
-
+  @Input()  customers:Customer[];
   
   dateTime = new Date();
 
   //Customer variables
-  customers:Customer[] = new Array();
+  
 
 
 
@@ -33,7 +33,7 @@ export class MovieSelectionComponent implements OnInit {
   ticketprice:number;
   tickets: number = 1;
   showTmes:string[];
-  movieDate:string  //"2020-04-25";
+  movieDate:string 
   time:string = "";
   
   //State variables
@@ -64,6 +64,7 @@ export class MovieSelectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.movieDate = this.datepipe.transform( new Date() , 'yyyy-MM-dd');
+    
   }
 
   public showTrailer(index:number){
@@ -82,31 +83,40 @@ export class MovieSelectionComponent implements OnInit {
     this.ticketprice = this.movieInfo.movies[index].price;
     this.showTmes = this.movieInfo.movies[index].date;
     this.movieDesc = this.movieInfo.movies[index].desc;
-  //  this.reload = !this.reload;
+  
 
   }
 
 
-  setDateAndTime(i:number){
+  public setDateAndTime(i:number){
 
-    console.log(i +" " + this.movieDate );
+    
     this.time = " klockan: " + i;
+    console.log(this.time);
     this.dateSetBoolean = true;
 
+    let customer:Customer = new Customer();
+    customer.movie = this.movieName;
+    customer.dateTime = this.movieDate;
+    customer.time = i.toString();
+    customer.orderList.push({type:'Biljet', name:this.movieName, price:this.ticketprice});
+    customer.calcSum();
+    this.customers.push(customer);
+    
   }
 
   public getNumberOfTickets(){
     
 
-    for(let i = 0; i<this.tickets; i++){
+    for(let i = 1; i<this.tickets; i++){
       let customer:Customer = new Customer();
       customer.movie = this.movieName;
       customer.dateTime = this.movieDate;
-      customer.orderList.push({type:'movie', name:this.movieName, price:this.ticketprice});
+      customer.orderList.push({type:'Biljet', name:this.movieName, price:this.ticketprice});
       customer.calcSum();
       
       this.customers.push(customer);
-      console.log(this.customers)
+      
     }
 
     this.numberOfTicketChoosen = true;
@@ -120,6 +130,7 @@ export class MovieSelectionComponent implements OnInit {
     this.customersEvent.emit(this.customers);
     this.dateSetBooleanEvent.emit(this.dateSetBoolean);
     this.numberOfTicketChoosenEvent.emit(this.numberOfTicketChoosen);
+    
   }
 
 
