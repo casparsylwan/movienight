@@ -16,6 +16,7 @@ export class ControllOrderComponent implements OnInit {
 
   //Customer var
   totalSum:number= 0;
+  expandBol:boolean = false;
 
   constructor() { }
 
@@ -46,6 +47,10 @@ export class ControllOrderComponent implements OnInit {
     this.customers.forEach(customer => {
       customer.calcSum();
       this.totalSum += customer.totalSum});
+  }
+
+  public expand(){
+    this.expandBol=!this.expandBol;
   }
 
 }

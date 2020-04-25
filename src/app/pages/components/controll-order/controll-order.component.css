@@ -110,6 +110,19 @@ thead th:nth-child(1) {
     padding: 1rem;
   }
 
+  .expand{
+    background-color: #fff;
+    
+    height: 2rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+    
+    transition: transform ease-in 500ms;
+  }
+
 @media screen and  (max-width:750px){
     
     .table{

@@ -32,11 +32,11 @@
                         <td>{{  customers.length }}</td>
                     </tr>
                     <ng-container *ngFor="let customer of customers">
-                        <tr *ngIf="customer.seat">
+                        <tr *ngIf="customer.seat && expandBol">
                             <th> Beställning stol: {{customer.seat}} </th>
                         </tr>
                         <ng-container *ngFor="let order of customer.orderList">
-                            <tr *ngIf="customer.seat">
+                            <tr *ngIf="customer.seat && expandBol">
                                 <th> {{ order.name }} </th>
                                 <td> {{ order.type }} </td>
                                 <td> {{ order.price }} kr</td>
@@ -52,7 +52,9 @@
                     </tr>
                 </tfoot>
             </table>
-
+            <button (click)="expand()" class="expand">
+                expandera
+            </button> 
         </section>
     </div>
 </div>
