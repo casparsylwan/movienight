@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Customer } from 'src/app/models/Customer';
 
 @Component({
   selector: 'app-controll-order',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./controll-order.component.css']
 })
 export class ControllOrderComponent implements OnInit {
+  @Input()  customers:Customer;
+  @Output() customersEvent = new EventEmitter();
 
   
   order:string = "Öppna beställning";
@@ -28,6 +31,10 @@ export class ControllOrderComponent implements OnInit {
       this.wrapper = "wrapper close";
       this.order = "Öppna beställning"
     }
+  }
+
+  public passInfoToCOmponents(){
+    this.customersEvent.emit(this.customers);
   }
 
 }

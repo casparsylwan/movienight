@@ -3,6 +3,8 @@
         <app-topnav></app-topnav>
         <app-controll-order
             *ngIf="dateSetBoolean"
+            [customers]="customers"
+            (customersEvent)="customers=$event"
         >
         </app-controll-order>
         <app-movie-selection 

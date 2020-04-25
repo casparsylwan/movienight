@@ -40,15 +40,18 @@
     background-color: rgba(64,64, 64, .5);
 }
 
-
-
-.folder{   
+h2{
     color:#ff0;
     text-align: center;
     line-height: 1.2rem;
-    padding:0rem 0rem 0rem 1rem;
     font-size: large;
-    font-weight: bold;    
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.folder{   
+    
+    padding:0rem 0rem 0rem 1rem;        
     transform: rotate(90deg);
 }
 
