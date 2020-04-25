@@ -16,6 +16,7 @@
 
     transition: all 1s ease-in;
     animation: enter 1s;
+    overflow-y: scroll;
 }
 
 .wrapper.open{
@@ -72,6 +73,7 @@ h2{
     border-collapse: collapse;
     border-top: #fff solid 2px;
     border-bottom: #fff solid 2px;
+    
 }
 
 .table h2{
