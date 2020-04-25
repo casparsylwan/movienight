@@ -9,10 +9,10 @@
     <div class="order">
         <section class="table">
             <h2>Din beställning</h2>
-            
+
             <h3>Beställningen är till:</h3>
             <h3>{{ customers[0].dateTime + ", " + customers[0].time }}:00</h3>
-            
+
             <table>
                 <thead>
                     <tr>
@@ -23,26 +23,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                     <tr>
-                       
-                      <th> {{ customers[0].movie }} </th>
-                      <td> {{ customers[0].orderList[0].type }} </td>
-                      <td>{{ customers[0].orderList[0].price }} kr</td>
-                      <td >{{  customers.length }}</td>
+
+                        <th> {{ customers[0].movie }} </th>
+                        <td> {{ customers[0].orderList[0].type }} </td>
+                        <td>{{ customers[0].orderList[0].price }} kr</td>
+                        <td>{{  customers.length }}</td>
                     </tr>
-                
-                    <tr>
-                      <th scope="row">The Clash</th>
-                      <td>1976</td>
-                      <td>6</td>
-                      <td>London Calling</td>
-                    </tr>
+                    <ng-container *ngFor="let customer of customers">
+                        <tr *ngIf="customer.seat">
+                            <th> Beställning stol: {{customer.seat}} </th>
+                        </tr>
+                        <ng-container *ngFor="let order of customer.orderList">
+                            <tr *ngIf="customer.seat">
+                                <th> {{ order.name }} </th>
+                                <td> {{ order.type }} </td>
+                                <td> {{ order.price }} kr</td>
+                                <td> {{ order.amount }} </td>
+                            </tr>
+                        </ng-container>
+                    </ng-container>
                 </tbody>
                 <tfoot>
                     <tr>
-                      <th scope="row" colspan="2">Total summa</th>
-                      <td colspan="2">{{ totalSum }}</td>
+                        <th scope="row" colspan="2">Total summa</th>
+                        <td colspan="2">{{ totalSum }}</td>
                     </tr>
                 </tfoot>
             </table>

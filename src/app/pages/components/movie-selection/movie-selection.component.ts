@@ -99,7 +99,7 @@ export class MovieSelectionComponent implements OnInit {
     customer.movie = this.movieName;
     customer.dateTime = this.movieDate;
     customer.time = i.toString();
-    customer.orderList.push({type:'Biljet', name:this.movieName, price:this.ticketprice});
+    customer.orderList.push({type:'Biljet', name:this.movieName, price:this.ticketprice, amount: 1 });
     customer.calcSum();
     this.customers.push(customer);
     
@@ -112,9 +112,9 @@ export class MovieSelectionComponent implements OnInit {
       let customer:Customer = new Customer();
       customer.movie = this.movieName;
       customer.dateTime = this.movieDate;
-      customer.orderList.push({type:'Biljet', name:this.movieName, price:this.ticketprice});
+      customer.orderList.push({type:'Biljet', name:this.movieName, price:this.ticketprice, amount: 1 });
       customer.calcSum();
-      
+      console.log(customer.orderList[0].amount);
       this.customers.push(customer);
       
     }

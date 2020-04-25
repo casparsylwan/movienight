@@ -3,7 +3,7 @@ export class Customer{
     movie:string;
     dateTime:string;
     time:string;
-    orderList:{type:string, name:string, price:number}[] = [];
+    orderList:{type:string, name:string, price:number, amount:number}[] = [];
     totalSum:number;
 
     public calcSum(){
