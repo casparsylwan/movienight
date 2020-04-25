@@ -16,7 +16,11 @@
 
     transition: all 1s ease-in;
     animation: enter 1s;
-    overflow-y: scroll;
+    overflow-y: auto; 
+}
+
+::-webkit-scrollbar-button{
+    width: 2rem;
 }
 
 .wrapper.open{

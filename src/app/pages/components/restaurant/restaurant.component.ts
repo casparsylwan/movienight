@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantComponent implements OnInit {
 
+  //card
+  card:string = "card";
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public flip(){
+
+    if(this.card=="card"){
+      this.card = "card is-flipped"
+    }else{
+      this.card = "card"
+    }
+
   }
 
 }
