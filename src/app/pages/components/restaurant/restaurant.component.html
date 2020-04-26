@@ -1,14 +1,41 @@
 <div class="wrapper">
+    <div (click)="flip()" class="scen">
+        <div [className]="card">
+            <div class="card-front">
+               <h2>FRONT</h2> 
+            </div>
+            <div [className]="back">
+               <h2>BACK</h2> 
+            </div>
+            <div class="card-b">
+                <h2>2 Caspar</h2> 
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+<div class="wrapper">
     <div (click)="flip()" class="card">
         <div [className]="card">
 
             <div class="card__front">
                 <h3 class="card__title">
-                  Resturang meny
+                   <span>r</span>
+                   <span>e</span>
+                   <span>s</span>
+                   <span>t</span>
+                   <span>a</span>
+                   <span>u</span>
+                   <span>r</span>
+                   <span>a</span>
+                   <span>n</span>
+                   <span>g</span>
+
+                   <div>meny</div> 
                      
                 
                 </h3>
-                <p class="card__subtitle">Time for some fun</p>
+                <p class="card__subtitle">Beställ till stol:</p>
             </div>
 
             <div class="card__back">
@@ -19,3 +46,4 @@
         </div>
     </div>
 </div>
+-->
