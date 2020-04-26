@@ -1,18 +1,27 @@
+
 .wrapper{
+    
     display: flex;
+    /*
     align-items: center;
+    */
     justify-content: center;
+    
+    background-color: #970;
+    
+    min-height: 100vh;
+    
 } 
 
   
   .card {
-    width: 100%;
+    margin: 2rem 0 0 0;
+    width: 90%;
   }
   
   .card__content {
     text-align: center;
     position: relative;
-    padding: 15em 1em;
     transition: transform 3s;
     
     transform-style: preserve-3d;
@@ -29,24 +38,23 @@
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 5em 3em;
+    padding: 15rem 3rem;
     backface-visibility: hidden;
     transform-style: preserve-3d;
-    display: grid;
-    align-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
   }
   
   .card__front {
 
-    background-color: #a70;
-    
-    background-image: url("../../../../assets/img/ash-goldsbrough-2qBInlIcCTk-unsplash.jpg");
-    background-size: contain;
-    background-blend-mode: overlay;
-    color: #fff;
+    background-color: #333;
+    color: #b7c9e5;
   }
   
-  .card__front::before {
+  .card__front::before,
+  .card__back::before {
     content: "";
     position: absolute;
     
@@ -71,12 +79,11 @@
     letter-spacing: 4px;
     font-size: 0.75rem;
     font-weight: 700;
-    opacity: 0.7;
   }
   
   .card__body {
     transform: translateZ(6rem);
-    font-weight: var(fw-normal);
+    font-weight: 700;
     font-size: 1.5rem;
     line-height: 1.6;
   }
@@ -85,5 +92,19 @@
     transform: rotateY(0.5turn);
     color: #b7c9e5;
     background: #333;
+    
+  }
+  
+
+  @media screen and (max-width:500px){
+    .card{
+        width:90%;
+    }
+
+    .card__title {
+
+        font-size: 2.5rem;
+
+    }
   }
   
