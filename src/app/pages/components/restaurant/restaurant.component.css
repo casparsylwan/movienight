@@ -9,14 +9,15 @@
     
     min-height: 100vh;
     
+   
+    
     
 } 
 
 .scen{
 
-    margin:2rem 0 3rem 0;
+    margin:2rem 0rem 3rem 0rem;
     width: 95%;
-    border: 1px solid black;
 }
 
 .card{
@@ -24,10 +25,11 @@
     height: 100%;
     transition: transform 3s;
     transform-style: preserve-3d;
+    transform-origin: center right;
 }
 
 .card.is-flipped{
-    transform: rotateY(.5turn);
+    transform: translateX(-100%) rotateY(-180deg);
 }
 
 .card-front, .card-back, .card-b{
@@ -36,6 +38,10 @@
     bottom: 0;
     left:0;
     right: 0;
+    min-height: 80vh;
+    height: fit-content;
+    padding-bottom: 2rem;
+    padding-left: 1.5rem;
     transform-style: preserve-3d;
     backface-visibility: hidden;
     
@@ -46,8 +52,28 @@
     text-align: center;
     background: #333;
     color: #fff;
+    text-transform: uppercase;
+
     
 }
+
+
+.card-back, .card-b{
+    background: #777;
+    color:#fff;    
+    transform: rotateY(.5turn);
+}
+
+.card-back.is-flipped{
+    z-index: 1;
+}
+
+.card-b{
+    z-index: -1;
+}
+
+/*---------Cards content----  -----*/
+/*----Front page-------*/
 
 .card-front::before, .card-back::before{
     content: "";
@@ -57,29 +83,223 @@
     bottom: 1rem;
     left: 1rem;
     right: 1rem;
-    border: 1px solid #fff;
-    transform: translateZ(3rem);
+    border: 1px solid currentColor;
+    transform: translateZ(0.5rem), border 1s;
 }
 
-.card-front h2{
-    margin: 2rem 0 0 0;
-    font-size: 3rem;
+.card-front{
+
+    padding:2rem 1.5rem 0rem 1.5rem;
+    background: #333;
+    
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+}
+
+
+.content-front{
+    display: flex;
+    flex-direction: column;   
+}
+
+
+
+.front-title{
+    padding: 0.5rem 0rem 0rem 0rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 3px;
     transform: translateZ(9rem);
+    
 }
 
-.card-back, .card-b{
-    background: #777;
-    color:#fff;    
-    transform: rotateY(.5turn);
+.front-subtitle{
+    order:-1;
+    padding:1rem 1rem 1rem 0rem;
+    letter-spacing: 4px;
+    line-height: 1.2rem;
+    transform: translateZ(6rem);
+    white-space: nowrap;
+    
 }
 
-.card-back.is-flipped{
-    z-index: -1;
+/*--Front-chairs---*/
+
+.seats{
+    margin: 2rem;
 }
 
-.card-b{
-    z-index: 1;
+.chair{
+    
+    display: inline-block;
+
+
+    border: solid #fff 3px;
+    border-top: 2px solid #f00;
+    border-radius: 10px;
+    
+    width: 4rem;
+    height: 4rem;
+
+    margin: 1rem;
+
+    cursor: pointer;
+    transform: translateZ(4rem);
+
+    animation: go-home ease-in 1s;
+  }
+
+  .inner-chair{
+
+    width: 100%;
+    height: 90%;
+
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #fff;
+    border-top: 2px solid #f00;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+  }
+
+  .chair.active{
+
+    transform: translateZ(6rem) rotate(540deg);
+    background-color: rgba(255, 0, 0, 0.8);
+    animation: rotate360 3s;
+  }
+
+  .chair.chair.active p{
+    transform: rotate(180deg);
+  }
+
+  .btn{
+    background-color: #fff;
+    
+    height: 2rem;
+    width: 4rem;
+
+    border-radius: 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    transform: translateZ(1rem);
+
+    margin: 1rem;
+    
+    transition: transform ease-in 500ms, background-color ease-in 1s;
+  }
+
+  .btn:active{
+      transform: scale(0.9);
+      background-color: #0ff;
+      
+
+  }
+
+  .btn.checkout{
+    margin-top: 3rem;
+    height: 3rem;
+    width: 6rem;
+    transform: translateZ(3rem);
+    animation: show 2s;
+  }
+
+  .btn.is-flipped{
+      display: none;
+      
+  }
+
+
+/*----Back----*/
+
+/*--shoping--*/
+
+table{
+    margin: 2rem auto;
+    padding:2rem 1.5rem 2rem 1.5rem;
 }
+
+tr{
+    height: 4rem;
+}
+
+
+th, td{
+    text-align: start;
+}
+
+th{
+    font-weight: bold;
+    font-weight: 1.5rem;
+}
+
+thead th:nth-child(1) {
+    width: 50%;
+    font-weight: 2rem;
+    font-size: 2rem;
+    height: 4rem;
+  }
+  thead th:nth-child(2) {
+    width: 15%;
+    font-weight: 2rem;
+    font-size: 2rem;
+  }
+  
+  thead th:nth-child(3) {
+    width: 15%;
+    font-weight: 2rem;
+    font-size: 2rem;
+  }
+
+
+.shopping{
+    display: flex;
+    flex-direction: column;
+}
+
+.add, .remove{
+    border-radius: 100%;
+    text-align: center;
+    margin: 0 1rem 0 1rem;
+}
+
+.add{
+    background-color: #f00;
+}
+
+.remove{
+    background-color: #00f;
+}
+
+
+/*---keyframes---*/
+@keyframes rotate360 {
+    
+    0%{ transform: rotate(0deg); background-color: none;}
+    100%{transform: rotate(540deg); background-color: rgba(255, 0, 0, 0.8);}
+   
+  }
+
+  @keyframes go-home {
+
+    0%{ transform: rotate(540deg); background-color: rgba(255, 0, 0, 0.8);}
+    100%{transform: rotate(0deg); background-color: none; }
+
+  }
+
+  @keyframes show{
+      from{
+          opacity: 0;
+      }
+      to{
+          opacity: 1;
+      }
+  }
+
 
  /* 
   .card {

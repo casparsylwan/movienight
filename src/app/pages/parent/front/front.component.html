@@ -22,7 +22,9 @@
             (customersEvent)="customers=$event"
             *ngIf="numberOfTicketChoosen && !seatChoosenBolean">
         </app-cinema>
-        <app-restaurant 
+        <app-restaurant
+            [customers]="customers"
+            (customersEvent)="customers=$event" 
             *ngIf="seatChoosenBolean">
         </app-restaurant>
         <app-checkout *ngIf="false"></app-checkout>

@@ -1,15 +1,73 @@
 <div class="wrapper">
-    <div (click)="flip()" class="scen">
+    <div class="scen">
         <div [className]="card">
             <div class="card-front">
-               <h2>FRONT</h2> 
+                <div [className]="contentFront">
+                    <h2 class="front-title">Restaurang</h2>
+                    <h2 class="front-title">MENY</h2>
+                    <p class="front-subtitle">Snacks gott till filmen!</p>
+                </div>
+                <div class="seats">
+
+                    <h3>{{ subHeading }}</h3>
+
+                    <div [ngClass]="( chair == customer.seat)? 'chair active' : 'chair'"
+                        *ngFor="let customer of customers;let i = index" (click)="getCustomer(customer.seat)">
+                        <a>
+
+                            <div class="inner-chair">
+                                <p>{{ customer.seat }}</p>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="btn-box">
+                    <button 
+                        (click)="setItem('candy')"
+                        class="btn">
+                        godis
+                    </button>
+                    <button
+                        (click)="setItem('drink')"
+                        class="btn">
+                        dryck
+                    </button>
+                    <button
+                        (click)="setItem('food')"
+                        class="btn">
+                        mat
+                    </button>
+                </div>
+                <button [className]= "btnCheck">
+                    Gå till kassan
+                </button>
+
+
             </div>
-            <div [className]="back">
-               <h2>BACK</h2> 
+            <div (click)="flip()" [className]="back">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Vara</th>
+                            <th>Pris</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of sortItem()">
+                            <th>{{ item.name }}</th>
+                            <td>{{ item.price }} kr</td>
+                            <td class="shopping"><span class="add">+</span><span class="remove">-</span></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="card-b">
-                <h2>2 Caspar</h2> 
+
+            <div (click)="flip()" class="card-b">
+                <h2 (click)="flip()">2 Caspar</h2>
             </div>
+
         </div>
     </div>
 </div>
@@ -47,3 +105,24 @@
     </div>
 </div>
 -->
+
+
+
+<!--
+                    <h3>{{ titleSubHeading  }}</h3>
+                    <div class="seats">
+
+                        <div [ngClass]="( chair == customer.seat)? 'chair active' : 'chair'"
+                        *ngFor="let customer of customers;let i = index"
+                        (click)="getCustomer(customer.seat )" >
+                            <a>
+        
+                                    <div class="inner-chair">
+                                        <p>{{ customer.seat }}</p>
+                                    </div>
+                            </a>
+        
+        
+                        </div>
+                </div>
+                -->
