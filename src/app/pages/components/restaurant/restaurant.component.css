@@ -7,7 +7,7 @@
     
     background-color: #970;
     
-    min-height: 100vh;
+    min-height: 120vh;
     
    
     
@@ -209,6 +209,10 @@
   }
 
   .btn.is-flipped{
+    display: none;
+  }
+
+  .btn.is-flipped{
       display: none;
       
   }
@@ -230,6 +234,7 @@ tr{
 
 th, td{
     text-align: start;
+    transform: translateZ(3rem);
 }
 
 th{
@@ -264,11 +269,15 @@ thead th:nth-child(1) {
 .add, .remove{
     border-radius: 100%;
     text-align: center;
-    margin: 0 1rem 0 1rem;
+    font-weight: bolder;
+    margin: 0.5rem 1rem 0.5rem 1rem;
+    height: 2rem;
+    width: 2rem;
 }
 
 .add{
     background-color: #f00;
+    
 }
 
 .remove{

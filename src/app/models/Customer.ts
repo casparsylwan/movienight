@@ -9,7 +9,7 @@ export class Customer{
     public calcSum(){
         this.totalSum = 0;
         this.orderList.forEach(( item ) =>{
-            this.totalSum += item.price;
+            this.totalSum += (item.price * item.amount);
             
         })
     }

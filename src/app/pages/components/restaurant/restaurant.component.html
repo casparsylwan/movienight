@@ -25,17 +25,17 @@
                 <div class="btn-box">
                     <button 
                         (click)="setItem('candy')"
-                        class="btn">
+                        [className]="btn">
                         godis
                     </button>
                     <button
                         (click)="setItem('drink')"
-                        class="btn">
+                        [className]="btn">
                         dryck
                     </button>
                     <button
                         (click)="setItem('food')"
-                        class="btn">
+                        [className]="btn">
                         mat
                     </button>
                 </div>
@@ -45,7 +45,7 @@
 
 
             </div>
-            <div (click)="flip()" [className]="back">
+            <div  [className]="back">
                 <table>
                     <thead>
                         <tr>
@@ -58,10 +58,15 @@
                         <tr *ngFor="let item of sortItem()">
                             <th>{{ item.name }}</th>
                             <td>{{ item.price }} kr</td>
-                            <td class="shopping"><span class="add">+</span><span class="remove">-</span></td>
+                            <td class="shopping"><span (click)="buyItem(item)" class="add">+</span>
+                                <span (click)="removeItem(item)" class="remove">-</span></td>
                         </tr>
                     </tbody>
                 </table>
+                <div *ngIf="id!=-1" class="chair-info">
+                    <h2>Stol nummer {{ chair }} har handlat för {{ customers[id].totalSum  }}</h2>
+                </div>
+                <button (click)="flip()" class="btn" >Färdig</button>
             </div>
 
             <div (click)="flip()" class="card-b">

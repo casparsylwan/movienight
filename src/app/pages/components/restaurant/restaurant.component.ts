@@ -16,11 +16,12 @@ export class RestaurantComponent implements OnInit {
   titleSubHeading:string = "Mat, dryck och godis";
   subHeading:string ="Välj stol att beställa till!";
 
-  //card
+  //card and classes
   card:string = "card";
   back:string = "card-back";
   contentFront:string = "content-front";
   btnCheck:string = "btn checkout";
+  btn:string = "btn";
 
   //Heading choice
   chair:number = -1;
@@ -67,12 +68,14 @@ export class RestaurantComponent implements OnInit {
       this.back = "card-back is-flipped";
       this.contentFront = "content-front is-flipped";
       this.btnCheck = "btn checkout is-flipped";
+      this.btn = "btn is-flipped";
 
     }else{
       this.card = "card"
       this.back = "card-back";
       this.contentFront = "content-front";
       this.btnCheck = "btn checkout";
+      this.btn = "btn";
       console.log(this.back);
     }
 
@@ -90,6 +93,7 @@ export class RestaurantComponent implements OnInit {
   
       this.chair = seat;  
       this.subHeading = "Beställ mat till stol: " + seat;
+      this.id = this.customers.findIndex(customer => customer.seat === seat);
       console.log(seat + " +1");
       }   
   }
@@ -104,28 +108,41 @@ export class RestaurantComponent implements OnInit {
     return this.items.items.filter(product => product.type===this.itemChoice);
   }
 
-  public  buyCandy(candy:any){
+  public  buyItem(candy:any){
 
-    console.log("hej");
-    console.log(candy);
-    this.customers[this.id].orderList.push(candy);
-    this.customers[this.id].calcSum(); 
-    this.calcTotalSum()
-     this.customersEvent.emit(this.customers);
-    
+    let indexOfItem = this.customers[this.id].orderList.findIndex(item => item.name===candy.name);
+    if( indexOfItem ===-1){
+      this.customers[this.id].orderList.push({type:candy.type, name:candy.name, price:candy.price, amount:1});
+      this.calcTotalSum();
+    }else{
+      this.customers[this.id].orderList[indexOfItem].amount += 1;
+      this.customers[this.id].calcSum();
+      console.log(this.customers[this.id].orderList[indexOfItem].amount);
+    }
+    this.customersEvent.emit(this.customers);
   }
 
-  public removeCandy(candy:any){
-    console.log(candy);
-    let index = this.customers[this.id].orderList.indexOf(candy);
-    if(index != -1){
-      console.log(this.customers[this.id])
-      this.customers[this.id].orderList.splice(index, 1);
-      this.customers[this.id].calcSum();
-      this.calcTotalSum()
-      this.customersEvent.emit(this.customers);
+  public removeItem(candy:any){
+
+    let indexOfItem = this.customers[this.id].orderList.findIndex(item => item.name===candy.name);
+    if(indexOfItem !=-1){
+
+       let amount = this.customers[this.id].orderList[indexOfItem].amount;
+       amount>1 ? this.customers[this.id].orderList[indexOfItem].amount = amount-1 : this.customers[this.id].orderList.splice(indexOfItem,1); 
     }
-    this.calcTotalSum()
+    this.customers[this.id].calcSum();
+    this.customersEvent.emit(this.customers);
+
+    // console.log(candy);
+    // let index = this.customers[this.id].orderList.indexOf(candy);
+    // if(index != -1){
+    //   console.log(this.customers[this.id])
+    //   this.customers[this.id].orderList.splice(index, 1);
+    //   this.customers[this.id].calcSum();
+    //   this.calcTotalSum()
+    //   this.customersEvent.emit(this.customers);
+    // }
+    // this.calcTotalSum()
   
   }
 
