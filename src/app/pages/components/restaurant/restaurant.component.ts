@@ -37,8 +37,6 @@ export class RestaurantComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log(this.items);
-
     if(this.customers == null){
       this.forDevOnly();
     } 
@@ -76,25 +74,25 @@ export class RestaurantComponent implements OnInit {
       this.contentFront = "content-front";
       this.btnCheck = "btn checkout";
       this.btn = "btn";
-      console.log(this.back);
+      
     }
 
   }
 
   public getCustomer( seat:number ){
-    console.log("Hej");
+    
     if(this.chair === seat){
 
       this.chair = -1;
       this.subHeading ="Välj stol att beställa till!";
-      console.log(seat);
+      
   
     }else{
   
       this.chair = seat;  
       this.subHeading = "Beställ mat till stol: " + seat;
       this.id = this.customers.findIndex(customer => customer.seat === seat);
-      console.log(seat + " +1");
+      
       }   
   }
 
@@ -111,15 +109,17 @@ export class RestaurantComponent implements OnInit {
   public  buyItem(candy:any){
 
     let indexOfItem = this.customers[this.id].orderList.findIndex(item => item.name===candy.name);
-    if( indexOfItem ===-1){
+    if( indexOfItem ==-1){
       this.customers[this.id].orderList.push({type:candy.type, name:candy.name, price:candy.price, amount:1});
-      this.calcTotalSum();
+      this.customers[this.id].calcSum();
+      this.customersEvent.emit(this.customers);
+
     }else{
       this.customers[this.id].orderList[indexOfItem].amount += 1;
       this.customers[this.id].calcSum();
-      console.log(this.customers[this.id].orderList[indexOfItem].amount);
+      this.customersEvent.emit(this.customers);
     }
-    this.customersEvent.emit(this.customers);
+  
   }
 
   public removeItem(candy:any){
@@ -133,25 +133,7 @@ export class RestaurantComponent implements OnInit {
     this.customers[this.id].calcSum();
     this.customersEvent.emit(this.customers);
 
-    // console.log(candy);
-    // let index = this.customers[this.id].orderList.indexOf(candy);
-    // if(index != -1){
-    //   console.log(this.customers[this.id])
-    //   this.customers[this.id].orderList.splice(index, 1);
-    //   this.customers[this.id].calcSum();
-    //   this.calcTotalSum()
-    //   this.customersEvent.emit(this.customers);
-    // }
-    // this.calcTotalSum()
   
   }
-
-  public calcTotalSum(){
-
-    this.totalSum = 0;
-    this.customers.forEach(customer => this.totalSum = this.totalSum + customer.totalSum) 
-
-  }
-
 
 }
