@@ -16,6 +16,9 @@ export class RestaurantComponent implements OnInit {
   titleSubHeading:string = "Mat, dryck och godis";
   subHeading:string ="Välj stol att beställa till!";
 
+  //btn
+  btnChair:string = "VÄLJ";
+
   //card and classes
   card:string = "card";
   back:string = "card-back";
@@ -85,14 +88,14 @@ export class RestaurantComponent implements OnInit {
 
       this.chair = -1;
       this.subHeading ="Välj stol att beställa till!";
-      
+      this.btnChair = "VÄLJ";
   
     }else{
   
       this.chair = seat;  
       this.subHeading = "Beställ mat till stol: " + seat;
       this.id = this.customers.findIndex(customer => customer.seat === seat);
-      
+      this.btnChair = "färdig";
       }   
   }
 
@@ -106,11 +109,11 @@ export class RestaurantComponent implements OnInit {
     return this.items.items.filter(product => product.type===this.itemChoice);
   }
 
-  public  buyItem(candy:any){
+  public  buyItem(product:any){
 
-    let indexOfItem = this.customers[this.id].orderList.findIndex(item => item.name===candy.name);
+    let indexOfItem = this.customers[this.id].orderList.findIndex(item => item.name===product.name);
     if( indexOfItem ==-1){
-      this.customers[this.id].orderList.push({type:candy.type, name:candy.name, price:candy.price, amount:1});
+      this.customers[this.id].orderList.push({type:product.type, name:product.name, price:product.price, amount:1});
       this.customers[this.id].calcSum();
       this.customersEvent.emit(this.customers);
 
@@ -122,9 +125,9 @@ export class RestaurantComponent implements OnInit {
   
   }
 
-  public removeItem(candy:any){
+  public removeItem(product:any){
 
-    let indexOfItem = this.customers[this.id].orderList.findIndex(item => item.name===candy.name);
+    let indexOfItem = this.customers[this.id].orderList.findIndex(item => item.name===product.name);
     if(indexOfItem !=-1){
 
        let amount = this.customers[this.id].orderList[indexOfItem].amount;

@@ -46,6 +46,7 @@
 
             </div>
             <div  [className]="back">
+                
                 <table>
                     <thead>
                         <tr>
@@ -58,7 +59,7 @@
                         <tr *ngFor="let item of sortItem()">
                             <th>{{ item.name }}</th>
                             <td>{{ item.price }} kr</td>
-                            <td class="shopping"><button (click)="buyItem(item)" class="add">+</button>
+                            <td *ngIf="id!=-1" class="shopping"><button (click)="buyItem(item)" class="add">+</button>
                                 <button (click)="removeItem(item)" class="remove">-</button></td>
                         </tr>
                     </tbody>
@@ -66,7 +67,8 @@
                 <div *ngIf="id!=-1" class="chair-info">
                     <h2>Stol nummer {{ chair }} har handlat för {{ customers[id].totalSum  }}</h2>
                 </div>
-                <button (click)="flip()" class="btn" >Färdig</button>
+                <h2 class="make-a-choice" *ngIf="id===-1">VÄLJ EN STOL FÖR ATT KUNNA BESTÄLLA</h2>
+                <button (click)="flip()" class="btn" >{{ btnChair }}</button>
             </div>
 
             <div (click)="flip()" class="card-b">
