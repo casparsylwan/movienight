@@ -77,6 +77,7 @@ export class RestaurantComponent implements OnInit {
       this.contentFront = "content-front";
       this.btnCheck = "btn checkout";
       this.btn = "btn";
+      this.itemChoice = "";
       
     }
 
