@@ -141,7 +141,7 @@ export class RestaurantComponent implements OnInit {
   }
 
   public getAountOfItem( product ){
-
+    //Finds the item if it Exist else -1;
     let indexOfItem = this.customers[this.id].orderList.findIndex(item => item.name===product.name);
    
     return indexOfItem != -1 ? this.customers[this.id].orderList[indexOfItem].amount : 0;
