@@ -24,10 +24,14 @@
         </app-cinema>
         <app-restaurant
             [customers]="customers"
-            (customersEvent)="customers=$event" 
-            *ngIf="seatChoosenBolean">
+            (customersEvent)="customers=$event"
+            (goToCheckoutEvent)="goToCheckout=$event" 
+            *ngIf="seatChoosenBolean && !goToCheckout">
         </app-restaurant>
-        <app-checkout *ngIf="false"></app-checkout>
+        <app-checkout 
+            *ngIf="goToCheckout"
+            [customers]="customers">
+        </app-checkout>
     </div>
     <app-footer></app-footer>
 </div>

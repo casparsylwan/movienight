@@ -10,7 +10,11 @@ import { RestaurantItem } from '../../../models/RestaurantItem';
 export class RestaurantComponent implements OnInit {
   @Input()  customers:Customer[];
   @Output() customersEvent = new EventEmitter();
+  @Output() goToCheckoutEvent = new EventEmitter();
             items:RestaurantItem = new RestaurantItem();
+
+  //Booleans 
+  goToCheckout:boolean = false;
 
   //Headlines
   titleSubHeading:string = "Mat, dryck och godis";
@@ -140,12 +144,19 @@ export class RestaurantComponent implements OnInit {
   
   }
 
-  public getAountOfItem( product ){
+  public getAmountOfItem( product ){
     //Finds the item if it Exist else -1;
     let indexOfItem = this.customers[this.id].orderList.findIndex(item => item.name===product.name);
    
     return indexOfItem != -1 ? this.customers[this.id].orderList[indexOfItem].amount : 0;
    
+  }
+
+  public checkout(){
+
+    console.log(this.goToCheckout + "Caspar")
+    this.goToCheckout = true;
+    this.goToCheckoutEvent.emit(this.goToCheckout);
   }
 
 }

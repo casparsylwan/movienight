@@ -39,7 +39,7 @@
                         mat
                     </button>
                 </div>
-                <button [className]= "btnCheck">
+                <button (click)="checkout()" [className]= "btnCheck">
                     Gå till kassan
                 </button>
 
@@ -60,7 +60,7 @@
                         <tr *ngFor="let item of sortItem()">
                             <th>{{ item.name }}</th>
                             <td>{{ item.price }} kr</td>
-                            <td *ngIf="chair!=-1" > {{ getAountOfItem( item) }} </td>
+                            <td *ngIf="chair!=-1" > {{ getAmountOfItem(item) }} </td>
                             <td *ngIf="id!=-1" class="shopping"> <button (click)="buyItem(item)" class="add">+</button>
                                 <button (click)="removeItem(item)" class="remove">-</button></td>
                         </tr>

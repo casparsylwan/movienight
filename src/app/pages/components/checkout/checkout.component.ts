@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Customer } from '../../../models/Customer';
 
 @Component({
@@ -7,7 +7,7 @@ import { Customer } from '../../../models/Customer';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
-  customers:Customer[];
+  @Input() customers:Customer[];
 
   //Booleans open
   showChair:boolean[] = [];

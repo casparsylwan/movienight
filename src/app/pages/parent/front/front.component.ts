@@ -14,6 +14,7 @@ export class FrontComponent implements OnInit {
   dateSetBoolean:boolean;
   numberOfTicketChoosen:boolean;
   seatChoosenBolean:boolean;
+  goToCheckout:boolean;
 
 
   constructor() { }
