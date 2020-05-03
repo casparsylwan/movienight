@@ -1,1 +1,123 @@
-<p>checkout works!</p>
+<div class="checkoutcontainer">
+
+    <div class="main">
+        <h2 class="heading">Kontrollera din beställning</h2>
+        <h3> Film : {{ customers[0].movie }}</h3>
+        <div class="sub">
+
+            <h3 class="leftsub">Att betala: </h3>
+            <h3>{{calcTotalSum()}} kr</h3>
+
+
+            <h3>Antal biljetter: </h3>
+            <h3>{{ customers.length + " " }}st </h3>
+
+        </div>
+        <h3> Beställnings specifikation för stol:</h3>
+        <div class="btn-box">
+            <ng-container *ngFor="let customer of customers; let i = index">
+
+                <table>
+                    <tr>
+                        <th>
+                            <h3>Stol {{ customer.seat  }}</h3>
+                        </th>
+                        <th>
+                            <button (click)="showDetails(i)" class="btn" >visa</button>
+                        </th>
+                    </tr>
+                    <ng-container *ngIf="showChair[i]">
+                        <tr>
+                            <th>Namn</th>
+                            <th>typ</th>
+                            <th>antal</th>
+                            <th>Pris</th>
+                            <th>summa</th>
+                        </tr>
+                        <tr *ngFor="let order of customer.orderList">
+                            <td> {{ order.name  }} </td>
+                            <td> {{ order.type }}</td>
+                            <td> {{ order.amount  }} </td>
+                            <td> {{ order.price + " " }} kr</td>
+                            <td> {{ order.amount * order.price  }} </td>
+                        </tr>
+                        <tr>
+                            <td>Summa</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td> {{ customer.totalSum + " " }} kr </td>
+                        </tr>
+                    </ng-container>
+                </table>
+            </ng-container>
+            <span class="show-total">TOTAL SUMMA: {{ calcTotalSum() }} kr</span>
+
+            <!--
+        <tr >
+          <td> STOL </td>
+          <td>{{ customer.seat  }}</td>
+        <tr *ngFor="let order of customer">
+          <td>order.name</td>
+          <td>order.price</td>
+        </tr>
+        </tr>
+       
+        <tr>
+          <td>Total</td>
+          <td>{{customers[id].totalSum + " "}} kr</td>
+        </tr>
+        -->
+
+
+
+        </div>
+        <button (click)="pay()" class="btn pay">
+            Betala
+        </button>
+    </div>
+
+    <!--
+
+<div class="wrapper-border">
+    <div class="wrapper-checkout">
+        <h1>Kontrollera din beställning</h1>
+        <h2>Film : {{ customers[0].movie }}</h2>
+        <h2>antal biljetter: {{ customers.length }}</h2>
+        <h2>Att betalla: </h2>
+
+        <div 
+            *ngFor= "let customer of customers; let i = index" 
+            (click)="showDetails(i)"
+            class="table">
+            <h2>Stol: {{ customer.seat }} </h2>
+            <ng-container *ngIf="showChair[i]">
+            <table *ngFor="let order of customer.orderList">
+                <thead>
+                    <th> Namn </th>
+                    <th> klass </th>
+                    <th> antal </th>
+                    <th> pris </th>
+                    <th> summa </th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> {{ order.name }}   </td>
+                        <td> {{ order.type }}   </td>
+                        <td> {{ order.amount }} st </td>
+                        <td> {{ order.price }} kr </td>
+                        <td> {{ order.price * order.amount }} kr</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            </ng-container>
+        </div>
+    </div>
+</div>
+-->
