@@ -1,23 +1,45 @@
-<div class="wrapper-temp">
+
     <div (click)='openMenu()' [className]="box">
-        <div  
-            [className]="open">
-            <a 
-                [className]="link">HEM</a>
+        <div [className]="open">
         </div>
-        <div
-            [className]="open">
-            <a [className]="link">RESTAURAN</a>
+        <div [className]="open">
         </div>
-        <div
-            [className]="open">
-            <a 
-                [className]="link">
-                BIO BILJETER
-            </a>   
+        <div [className]="open">
         </div>
     </div>
+    <section [className]="topMenu">
+        <ul>
+            <li>
+                <a href="#">
+                    <h2 [className]="menuLink">Boka helkväll</h2>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h2 [className]="menuLink">Resturang meny</h2>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h2 [className]="menuLink">Möblera festsalen</h2>
+                </a>
+            </li>
+        </ul>
+
+
+    </section>
+    <section [className]="bottomMenu">
+        <ul>
+            <li>
+                <a href="#">
+                    <h2 [className]="menuLink">Logga in</h2>
+                </a>
+            </li>
+        </ul>
+        
+
+    </section>
+
     <!--[ngClass]="open ? 'line open' : 'line close'"
         [ngClass]="{'line': open=='none', 'line open':open=='true', 'line close': open=='false' }"
     -->
-</div>

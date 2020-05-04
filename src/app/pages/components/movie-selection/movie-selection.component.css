@@ -1,13 +1,13 @@
 .wrapper-movie-selection{
     display: flex;
-    flex-direction: column;
-   
-    
+    flex-direction: column;    
 }
 
 .top{
     display: flex;
     min-height: 20rem;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid #fff ;
     
     
 }
@@ -158,8 +158,12 @@
 .down{
       
     width: 100%;
-    overflow: auto;
-    white-space: nowrap;
+    overflow: hidden;
+    white-space: nowrap;   
+    background-color: #000;
+    border-top: 2px solid #fff ;
+    border-bottom: 2px solid #fff ;
+    margin-bottom: 1rem;
         
 }
 
@@ -170,6 +174,7 @@
     background-color: black;
     display: inline-block;
     margin-bottom: 3rem;
+    
     
     
     
@@ -392,6 +397,9 @@ img:hover{
 
     .down{
         border-top: #fff solid 2px;
+        overflow: auto;
+        background-color: transparent;
+        border-bottom: none;
         
     }
 
