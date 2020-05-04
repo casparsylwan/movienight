@@ -7,6 +7,7 @@ import { CinemaComponent } from './pages/components/cinema/cinema.component';
 import { ControllOrderComponent } from './pages/components/controll-order/controll-order.component';
 import { RestaurantComponent } from './pages/components/restaurant/restaurant.component';
 import { CheckoutComponent } from './pages/components/checkout/checkout.component';
+import { PartyroomComponent } from './pages/parent/partyroom/partyroom.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path:'seat', component: CinemaComponent},
   {path:'con', component: ControllOrderComponent},
   {path:'restu',component: RestaurantComponent},
-  {path:'check',component: CheckoutComponent}
+  {path:'check',component: CheckoutComponent},
+  {path:'restaurant', component: PartyroomComponent}
 ];
 
 @NgModule({

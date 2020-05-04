@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { RestaurantComponent } from './pages/components/restaurant/restaurant.co
 import { CheckoutComponent } from './pages/components/checkout/checkout.component';
 import { FooterComponent } from './pages/components/footer/footer.component';
 import { ControllOrderComponent } from './pages/components/controll-order/controll-order.component';
+import { PartyroomComponent } from './pages/parent/partyroom/partyroom.component';
 
 @NgModule({
   declarations: [
@@ -26,12 +28,14 @@ import { ControllOrderComponent } from './pages/components/controll-order/contro
     RestaurantComponent,
     CheckoutComponent,
     FooterComponent,
-    ControllOrderComponent
+    ControllOrderComponent,
+    PartyroomComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    DragDropModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
