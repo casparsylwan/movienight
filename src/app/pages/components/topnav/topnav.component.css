@@ -10,7 +10,10 @@
     right: 1rem;
     display: flex;
     flex-direction: column;
+    /*Adding click space */
+    padding-bottom: 1rem;
 }
+
 
 .line{
 
@@ -19,7 +22,7 @@
     margin-top: 0.3rem;
     border-radius: 0.3rem;
     background-color: #fff;
-    transition: opacity 0.5s, transform ease-in 1s, margin 1s;
+    transition: opacity 1.5s, transform ease-in 1s, margin 1s;
 
 }
 
@@ -132,9 +135,3 @@ li:hover h2{
     transform: translateX( 0%);
 
 }
-
-
-
-
-
-

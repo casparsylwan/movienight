@@ -10,7 +10,7 @@ export class TopnavComponent implements OnInit {
   open:string = 'line close';
   topMenu:string = 'top-menu close';
   bottomMenu:string ='bottom-menu close';
-  box:string  = 'box-nav';
+  box:string  = 'box-nav close';
   menuLink:string = "open"
 
   constructor() { }
