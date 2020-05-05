@@ -18,7 +18,7 @@ const routes: Routes = [
   {path:'con', component: ControllOrderComponent},
   {path:'restu',component: RestaurantComponent},
   {path:'check',component: CheckoutComponent},
-  {path:'restaurant', component: PartyroomComponent}
+  {path:'restaurang', component: PartyroomComponent}
 ];
 
 @NgModule({

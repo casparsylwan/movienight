@@ -3,8 +3,21 @@
     background-color: #971;
 }
 
+.container{
+    position: relative;
+    width: 90%;
+    height: 90vh;
+    margin: 2rem auto;
+    background-color: #777;
+
+}
+
 .table{
+    position: absolute;
+    top:0;
+    left:0;
     height: 10rem;
     width: 5rem;
     border: 1px solid black;
+    transform-origin: center;
 }

@@ -1,4 +1,30 @@
 <div class="wrapper">
-    <p   >partyroom works!</p>
-    <div cdkDrag class="table"></div>
+    <p>partyroom works!</p>
+    <div class="container"
+        (mousemove)="coordinates($event)"
+        (mouseup)="pressUp()"
+                        >
+        <div [ngStyle]="{'transform': 'rotate('+ deg + 'deg)',
+                    'left': ''+ moveX + 'px',
+                    'top' : ''+ moveY + 'px' }"
+                     
+                    class="table">
+            <p (click)="rotate()">rotate  {{ clientX }}</p>
+            <p  (mousedown)="pressDown()">rotate  {{ moveX + " " + pressed}}</p>
+                <p>{{ moveY }}</p>
+        </div>
+    </div>
 </div>
+
+<!---
+
+cdkDrag 
+[style.transform]=" rotate( 10deg)"
+(mouseenter)="onEvent($event)"
+(mouseleave)="onEvent($event)"
+(mousemove)="coordinates($event)"
+on-click="onEvent($event)"
+on-dblclick="onEvent($event)"
+on-contextmenu="onEvent($event)"
+
+-->
