@@ -10,7 +10,7 @@ import { MovableDirective } from './movable.directive';
     CommonModule
   ],
   declarations: [DraggableDirective, MovableDirective],
-  exports: [DraggableDirective]
+  exports: [DraggableDirective, MovableDirective]
   
 })
 export class DraggableModule { }

@@ -22,6 +22,11 @@
     transform-origin: center;
 }
 
+.box{
+    padding: 1rem;
+    width: fit-content;
+}
+
 .draggable{
     background-color: #999;
 }

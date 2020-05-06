@@ -1,16 +1,21 @@
 <div class="wrapper">
     <p>partyroom works!</p>
     <div class="container">
-        <div class="table"
-            appDraggable 
-            
-            (dragMove)="onDragMove($event)" 
-            >
-             x:{{x}} + y:{{ y }}      
+        <div class="box" appMovable>
+            <div class="table" 
+                appDraggable 
+                (dragMove)="onDragMove($event)">
+                x:{{x}} + y:{{ y }}
+            </div>
+            <div class="table" 
+                (dragMove)="onDragMove($event)" 
+                appMovable>
+                x:{{x}} + y:{{ y }}
+            </div>
         </div>
     </div>
     <div>
-        
+
     </div>
 </div>
 
