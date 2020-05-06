@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { DraggableModule } from './draggable/draggable.module'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,7 +36,8 @@ import { PartyroomComponent } from './pages/parent/partyroom/partyroom.component
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    DragDropModule
+    DragDropModule,
+    DraggableModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

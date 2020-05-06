@@ -1,18 +1,16 @@
 <div class="wrapper">
     <p>partyroom works!</p>
-    <div class="container"
-        (mousemove)="coordinates($event)"
-        (mouseup)="pressUp()"
-                        >
-        <div [ngStyle]="{'transform': 'rotate('+ deg + 'deg)',
-                    'left': ''+ moveX + 'px',
-                    'top' : ''+ moveY + 'px' }"
-                     
-                    class="table">
-            <p (click)="rotate()">rotate  {{ clientX }}</p>
-            <p  (mousedown)="pressDown()">rotate  {{ moveX + " " + pressed}}</p>
-                <p>{{ moveY }}</p>
+    <div class="container">
+        <div class="table"
+            appDraggable 
+            
+            (dragMove)="onDragMove($event)" 
+            >
+             x:{{x}} + y:{{ y }}      
         </div>
+    </div>
+    <div>
+        
     </div>
 </div>
 
@@ -26,5 +24,5 @@ cdkDrag
 on-click="onEvent($event)"
 on-dblclick="onEvent($event)"
 on-contextmenu="onEvent($event)"
-
+[ngStyle]="{'transform': 'rotate('+ deg + 'deg)'}"
 -->
