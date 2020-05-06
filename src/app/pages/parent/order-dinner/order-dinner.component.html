@@ -1,0 +1,23 @@
+<div class="wrapper">
+    <app-topnav></app-topnav>
+    <div class="push-footer">
+        <app-room 
+            *ngIf="!goOntoTableBoolean"
+            (goOnEvent)="goOntoTableBoolean=$event"
+            [customers]="customers"
+            (customersEvent)="customers=$event">        
+        </app-room>
+        
+        <app-restaurant 
+            *ngIf="goOntoTableBoolean"
+            (customersEvent)="customers=$event"
+            [customers]="customers" >
+        </app-restaurant>
+        <app-controll-order
+            *ngIf="goOntoTableBoolean"
+            (customersEvent)="customers=$event"
+            [customers]="customers" >
+        </app-controll-order>
+    </div>
+    <app-footer></app-footer>
+</div>

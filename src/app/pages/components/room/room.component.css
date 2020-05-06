@@ -1,0 +1,118 @@
+.wrapper{
+    background-color: #970;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.room{
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    border-radius: 10px;
+    height: 70vh;
+    width: 40rem;
+    padding: 1rem 2rem;
+    background-color: black;
+    
+}
+
+.room::before{
+    position: absolute;
+    border-radius: 10px;
+    top:10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    z-index: 0;
+    content: ' ';
+    background-color: #fff;
+    
+    
+}
+
+.room::after{
+    position: absolute;
+    content: ' ';
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: #fa2;
+    transform: translate( -80%, 80%) rotate(0deg) scale(1);
+    transition: transform ease-out 3s;
+}
+
+.room:hover::after{
+    transform: translate( 20% , 20%) rotate(45deg) scale(2.2);
+}
+
+.cover{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: transparent;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+h1, h2{
+    font-size: 2rem;
+    font-weight: bolder;
+    color:#333;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+h2{
+    font-size: 1.5rem;
+}
+
+.btn-input{
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.btn-input input{
+
+    height: 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 1rem;
+    text-align: center;
+
+}
+
+.tickets{
+
+    background-color: #fff;    
+    height: 2rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+    
+    transition: transform ease-in 500ms, background-color ease-in 3s;
+
+}
+
+.tickets:hover{
+    background-color: #333;
+}
+
+.correct{
+    margin-bottom: 1rem;
+}

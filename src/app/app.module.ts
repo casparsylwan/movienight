@@ -17,6 +17,8 @@ import { CheckoutComponent } from './pages/components/checkout/checkout.componen
 import { FooterComponent } from './pages/components/footer/footer.component';
 import { ControllOrderComponent } from './pages/components/controll-order/controll-order.component';
 import { PartyroomComponent } from './pages/parent/partyroom/partyroom.component';
+import { OrderDinnerComponent } from './pages/parent/order-dinner/order-dinner.component';
+import { RoomComponent } from './pages/components/room/room.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { PartyroomComponent } from './pages/parent/partyroom/partyroom.component
     CheckoutComponent,
     FooterComponent,
     ControllOrderComponent,
-    PartyroomComponent
+    PartyroomComponent,
+    OrderDinnerComponent,
+    RoomComponent
   ],
   imports: [
     BrowserModule,

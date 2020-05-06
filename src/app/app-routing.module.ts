@@ -8,6 +8,7 @@ import { ControllOrderComponent } from './pages/components/controll-order/contro
 import { RestaurantComponent } from './pages/components/restaurant/restaurant.component';
 import { CheckoutComponent } from './pages/components/checkout/checkout.component';
 import { PartyroomComponent } from './pages/parent/partyroom/partyroom.component';
+import { OrderDinnerComponent } from './pages/parent/order-dinner/order-dinner.component';
 
 
 const routes: Routes = [
@@ -16,9 +17,9 @@ const routes: Routes = [
   {path:'top', component: TopnavComponent},
   {path:'seat', component: CinemaComponent},
   {path:'con', component: ControllOrderComponent},
-  {path:'restu',component: RestaurantComponent},
+  {path:'restaurang',component: OrderDinnerComponent},
   {path:'check',component: CheckoutComponent},
-  {path:'restaurang', component: PartyroomComponent}
+  {path:'rest', component: PartyroomComponent}
 ];
 
 @NgModule({
