@@ -14,7 +14,7 @@
             <h3>{{ customers[0].dateTime + ", " + customers[0].time }}:00</h3>
 
             <table>
-                <thead>
+                <thead *ngIf="customers.length>0">
                     <tr>
                         <th>Namn</th>
                         <th>typ</th>
@@ -22,11 +22,11 @@
                         <th>antal</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngIf="customers[0].orderList[0]>0">
                     <tr>
-                        <th> {{ customers[0].movie }} </th>
-                        <td> {{ customers[0].orderList[0].type }} </td>
-                        <td>{{ customers[0].orderList[0].price }} kr</td>
+                        <th > {{ customers[0].movie }} </th>
+                        <td > {{ customers[0].orderList[0].type }} </td>
+                        <td >{{ customers[0].orderList[0].price }} kr</td>
                         <td>{{  customers.length }}</td>
                     </tr>
                     <ng-container *ngFor="let customer of customers">
