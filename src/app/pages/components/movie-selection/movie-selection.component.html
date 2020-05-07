@@ -29,8 +29,13 @@
                     picture-in-picture" allowfullscreen>
                 </iframe>
             </div>
-            <input  *ngIf="state==1 && !(dateSetBoolean)" id="date" class="numberOfTickets" type="date" [(ngModel)]="movieDate">
-            <div *ngIf="state==1 && !(dateSetBoolean)" class="display-date big">
+            <!--Input date of tickets-fullscreen-->
+            <div class="time-instructions">
+                <input  *ngIf="state==1 && !(dateSetBoolean)" id="date" class="numberOfTickets" type="date" [(ngModel)]="movieDate">
+                <span *ngIf="state==1 && !(dateSetBoolean)" >Tryck på tiden du vill ha!</span>
+            </div>
+
+            <div *ngIf="state==1 && !(dateSetBoolean)" class="display-date big">                
                 <span (click)="setDateAndTime(time)" *ngFor="let time of showTmes; let i = index"> {{ time }}:00</span>
             </div>
              <!--Input number of tickets-fullscreen-->
@@ -68,7 +73,10 @@
             </iframe>
         </div>
         <!--Input for date and time for tickets-->
-        <input  *ngIf="state==1 && !(dateSetBoolean)" class="numberOfTickets small" type="date" [(ngModel)]="movieDate">
+        <div class="time-instructions small">
+            <input  *ngIf="state==1 && !(dateSetBoolean)" class="numberOfTickets small" type="date" [(ngModel)]="movieDate">
+            <span  *ngIf="state==1 && !(dateSetBoolean)"> Tryck på tiden du vill ha!</span>
+        </div>
             <div *ngIf="state==1 && !(dateSetBoolean)" class="display-date small">
                 <span (click)="setDateAndTime(time)" *ngFor="let time of showTmes; let i = index"> {{ time }}:00</span>
             </div> 

@@ -207,8 +207,38 @@ img:hover{
     color:#fff;
 }
 
+.time-instructions{
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:#fff;
+    
+    
+}
+
+.time-instructions span{
+    order:-1;
+    margin: 1rem;
+    font-size: 1.5rem;
+}
+
+.time-instructions.small span{
+    
+    margin: 0.3rem;
+    font-size: 1.5rem;
+}
+
+.display-date span{
+    cursor: pointer;
+}
+
+
 .display-date.big{
     font-size: 2rem;
+    
 }
 
 .display-date.small{
@@ -243,7 +273,8 @@ img:hover{
 }
 
 #date{
-    margin-left: 35%;
+    position: relative;
+    z-index: 2;   
     font-size: 2rem;
     border-radius: 2rem;
 

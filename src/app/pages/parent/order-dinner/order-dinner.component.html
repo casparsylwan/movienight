@@ -6,8 +6,7 @@
             (goOnEvent)="goOntoTableBoolean=$event"
             [customers]="customers"
             (customersEvent)="customers=$event">        
-        </app-room>
-        
+        </app-room>        
         <app-restaurant 
             *ngIf="goOntoTableBoolean"
             (customersEvent)="customers=$event"
