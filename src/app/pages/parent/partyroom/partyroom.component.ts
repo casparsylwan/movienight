@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class PartyroomComponent implements OnInit {
   deg:number = 0;
 
+  //ClassNames
   table:string = "table rotate" + this.deg.toString();
+  handle:string = "handle rotate"
 
   x:number = 0;
   y:number = 0;
@@ -34,7 +36,7 @@ export class PartyroomComponent implements OnInit {
   }
 
   public rotate(){
-    this.deg = (this.deg + 45) % 180;
+    this.deg = (this.deg + 45) % 360;
     
     this.table = "table rotate"+this.deg.toString();
     
