@@ -13,14 +13,49 @@
 }
 
 .table{
-    display: inline-block;
-    top:0;
-    left:0;
+    position: relative;
+    z-index: 0;
     height: 10rem;
     width: 5rem;
-    border: 1px solid black;
-    transform-origin: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    
+    
 }
+
+.table::after{
+    position: absolute;
+    content: '';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    border: black 1px solid;
+    transition: transform 1s;
+    
+}
+
+.table.rotate45::after{   
+    transform: rotate(45deg);   
+}
+
+.table.rotate90::after{   
+    transform: rotate(90deg);   
+}
+
+.table.rotate135::after{   
+    transform: rotate(135deg);   
+}
+
+
+/*
+.cdk-drag-dragging{
+    background-color: 
+    transform: rotate(45deg);
+}
+*/
 
 .box{
     padding: 1rem;

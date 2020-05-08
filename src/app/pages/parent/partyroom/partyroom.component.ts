@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./partyroom.component.css']
 })
 export class PartyroomComponent implements OnInit {
+  deg:number = 0;
+
+  table:string = "table rotate" + this.deg.toString();
 
   x:number = 0;
   y:number = 0;
@@ -23,7 +26,7 @@ export class PartyroomComponent implements OnInit {
   //   console.log('got drag end');
   // }
 
-  deg:number = 0;
+  
 
   constructor() { }
 
@@ -31,7 +34,11 @@ export class PartyroomComponent implements OnInit {
   }
 
   public rotate(){
-    this.deg += 45;
+    this.deg = (this.deg + 45) % 180;
+    
+    this.table = "table rotate"+this.deg.toString();
+    
+    
   }
 
   
