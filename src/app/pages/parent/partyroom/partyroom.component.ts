@@ -14,20 +14,57 @@ export class PartyroomComponent implements OnInit {
   table:string = "table rotate" + this.deg.toString();
   handle:string = "handle rotate"
 
+
+  //Test2
+
+  invites:{left:string[], rigth:string[]}[] =
+  [{
+                  left:[
+                    'Caspar S',
+                    'Mays S',
+                    'Jon V',
+                   
+                  ],
+                  rigth : [
+                    'Elsa D',
+                    'Naoras V',
+                    'Raoui G',
+                   
+                  ]
+
+  },
+  {
+                  left:[
+                    'C',
+                    'M',
+                    'J',
+                  
+                  ],
+                  rigth : [
+                    'E',
+                    'N',
+                    'R',
+     
+  ]
+
+  },{
+    left:[''],rigth:['']
+
+  }]
+
   //Test
   todo = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
+    'Caspar',
+    'Mays',
+    'Jon',
+   
   ];
 
   done = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog'
+    'Elsa',
+    'Naoras',
+    'Raoui',
+   
   ];
 
   drop(event: CdkDragDrop<string[]>) {
@@ -54,17 +91,4 @@ export class PartyroomComponent implements OnInit {
     
     
   }
-
-  
-
- 
-
-  
-
-    
-
-   
-
-    
-
 }
