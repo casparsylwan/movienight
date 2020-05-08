@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-partyroom',
@@ -6,28 +7,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./partyroom.component.css']
 })
 export class PartyroomComponent implements OnInit {
+  //Rotate
   deg:number = 0;
 
   //ClassNames
   table:string = "table rotate" + this.deg.toString();
   handle:string = "handle rotate"
 
-  x:number = 0;
-  y:number = 0;
-  // public onDragStart(){
-  //   console.log("Start");
-  // }
+  //Test
+  todo = [
+    'Get to work',
+    'Pick up groceries',
+    'Go home',
+    'Fall asleep'
+  ];
 
-  public onDragMove(event:PointerEvent){
-    
-    console.log(`got drag move ${Math.round(event.clientX)} ${Math.round(event.clientY)}`);
-    this.x=Math.round(event.clientX);
-    this.y=Math.round(event.clientY);
+  done = [
+    'Get up',
+    'Brush teeth',
+    'Take a shower',
+    'Check e-mail',
+    'Walk dog'
+  ];
+
+  drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+                        event.container.data,
+                        event.previousIndex,
+                        event.currentIndex);
+    }
   }
-  // public onDragEnd(): void {
-  //   console.log('got drag end');
-  // }
-
   
 
   constructor() { }
