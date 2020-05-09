@@ -14,58 +14,93 @@ export class PartyroomComponent implements OnInit {
   table:string = "table rotate" + this.deg.toString();
   handle:string = "handle rotate"
 
+  //customer variables
+  name:string="namn";
 
   //Test2
 
-  invites:{left:string[], rigth:string[]}[] =
-  [{
-                  left:[
-                    'Caspar S',
-                    'Mays S',
-                    'Jon V',
-                   
-                  ],
-                  rigth : [
-                    'Elsa D',
-                    'Naoras V',
-                    'Raoui G',
-                   
-                  ]
+  guests:string[] = []
 
-  },
-  {
-                  left:[
-                    'C',
-                    'M',
-                    'J',
+   tables:{table:number ,left:string[], rigth:string[]}[] = [];
+
+   public addGuest(){
+
+      if(this.name==="namn"){
+        console.log(this.guests);
+      }else{
+
+        this.guests.push(this.name)
+        console.log(this.guests);
+        this.name="namn";
+
+      }
+
+      
+   }
+
+   public removeGuest(name:string){
+
+    let guestIndex = this.guests.findIndex( guest => guest === name);
+    console.log(guestIndex)
+    
+   }
+
+   public addTable(){
+      let nextTable = 1 + this.tables.length
+      this.tables.push({table:nextTable, left:["C"], rigth:[]});
+   }
+
+   public removeTable(){
+     this.tables.pop()
+   }
+  // [{
+  //                 left:[
+  //                   'Caspar S',
+  //                   'Mays S',
+  //                   'Jon V',
+                   
+  //                 ],
+  //                 rigth : [
+  //                   'Elsa D',
+  //                   'Naoras V',
+  //                   'Raoui G',
+                   
+  //                 ]
+
+  // },
+  // {
+  //                 left:[
+  //                   'C',
+  //                   'M',
+  //                   'J',
                   
-                  ],
-                  rigth : [
-                    'E',
-                    'N',
-                    'R',
+  //                 ],
+  //                 rigth : [
+  //                   'E',
+  //                   'N',
+  //                   'R',
      
-  ]
+  // ]
 
-  },{
-    left:[''],rigth:['']
+  // },{
+  //   left:[''],rigth:['']
 
-  }]
+  // }]
 
   //Test
-  todo = [
-    'Caspar',
-    'Mays',
-    'Jon',
+  // todo = [
+  //   'Caspar',
+  //   'Mays',
+  //   'Jon',
    
-  ];
+  // ];
 
-  done = [
-    'Elsa',
-    'Naoras',
-    'Raoui',
+  // done = [
+  //   'Elsa',
+  //   'Naoras',
+  //   'Raoui',
    
-  ];
+  // ];
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
@@ -91,4 +126,5 @@ export class PartyroomComponent implements OnInit {
     
     
   }
+
 }
