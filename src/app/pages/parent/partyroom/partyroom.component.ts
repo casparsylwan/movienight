@@ -47,7 +47,7 @@ export class PartyroomComponent implements OnInit {
 
    public addTable(){
       let nextTable = 1 + this.tables.length
-      this.tables.push({table:nextTable, left:["C"], rigth:[]});
+      this.tables.push({table:nextTable, left:[], rigth:[]});
    }
 
    public removeTable(){
