@@ -57,8 +57,7 @@ export class PartyroomComponent implements OnInit {
   //                 left:[
   //                   'Caspar S',
   //                   'Mays S',
-  //                   'Jon V',
-                   
+  //                   'Jon V',               
   //                 ],
   //                 rigth : [
   //                   'Elsa D',
