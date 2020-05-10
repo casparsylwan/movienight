@@ -15,27 +15,28 @@ export class PartyroomComponent implements OnInit {
   handle:string = "handle rotate"
 
   //customer variables
-  name:string="namn";
+  name:string="";
   theTable:number= null;
 
   //Test2
 
   guests:string[] = []
 
-   tables:{table:number ,left:string[], rigth:string[]}[] = [];
+   tables:{table:number, rotate?:string, deg:number ,left:string[], rigth:string[]}[] = [];
 
    public addGuest(){
 
-      if(this.name==="namn"){
-        console.log(this.guests);
-      }else{
+    if(this.name.length<1){
+      return;
+    }else{
 
         this.guests.push(this.name)
         console.log(this.guests);
-        this.name="namn";
+        this.name="";
 
-      }
-
+    }
+    
+        
       
    }
 
@@ -50,11 +51,11 @@ export class PartyroomComponent implements OnInit {
      
     if(this.tables.length < 1){
 
-      this.tables.push({table:1, left:[], rigth:[]});
+      this.tables.push({table:1, rotate:"table rotate", deg:0 ,left:[], rigth:[]});
 
     }else{
       let a = this.tables.sort((table1, table2)=> table1.table - table2.table)[this.tables.length-1]
-      this.tables.push({table:a.table+1, left:[], rigth:[]});
+      this.tables.push({table:a.table+1, rotate:"table rotate", deg:0, left:[], rigth:[]});
       
     }
      
@@ -70,53 +71,7 @@ export class PartyroomComponent implements OnInit {
      }
      this.theTable = null;
    }
-  // [{
-  //                 left:[
-  //                   'Caspar S',
-  //                   'Mays S',
-  //                   'Jon V',               
-  //                 ],
-  //                 rigth : [
-  //                   'Elsa D',
-  //                   'Naoras V',
-  //                   'Raoui G',
-                   
-  //                 ]
 
-  // },
-  // {
-  //                 left:[
-  //                   'C',
-  //                   'M',
-  //                   'J',
-                  
-  //                 ],
-  //                 rigth : [
-  //                   'E',
-  //                   'N',
-  //                   'R',
-     
-  // ]
-
-  // },{
-  //   left:[''],rigth:['']
-
-  // }]
-
-  //Test
-  // todo = [
-  //   'Caspar',
-  //   'Mays',
-  //   'Jon',
-   
-  // ];
-
-  // done = [
-  //   'Elsa',
-  //   'Naoras',
-  //   'Raoui',
-   
-  // ];
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
@@ -135,10 +90,11 @@ export class PartyroomComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public rotate(){
-    this.deg = (this.deg + 45) % 360;
+  public rotate(table){
+
+    table.deg = (table.deg + 45) % 360;
     
-    this.table = "table rotate"+this.deg.toString();
+    table.rotate = "table rotate"+ table.deg.toString();
     
     
   }
