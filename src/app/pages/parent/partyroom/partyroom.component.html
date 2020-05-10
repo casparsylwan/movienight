@@ -3,9 +3,14 @@
     class="wrapper">
     <p>partyroom works!</p>
     <button (click)="addTable()">Nytt bord</button>
-    <button (click)="removeTable()">tabort bord</button>
+    
     <div class="new-customer">
-        <input type="text" name="name" onfocus="this.value=''" [(ngModel)]="name">
+        <input type="number" onfocus="this.value=''" [(ngModel)]="theTable">
+        <button (click)="removeTable(theTable)">tabort bord</button>
+        {{ theTable }}
+    </div>
+    <div class="new-customer">
+        <input type="text" name="name" onfocus="this.value=''" (ngModel)="name">
         <button (click)="addGuest()" >Ny gäst</button>
     </div>
     <div

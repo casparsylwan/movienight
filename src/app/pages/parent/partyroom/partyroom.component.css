@@ -49,7 +49,7 @@
 }
 
 .table.rotate135{
-    transform: rotate(135deg);
+    transform: rotate(-45deg);
 }
 
 .table.rotate180{
@@ -59,7 +59,7 @@
 }
 
 .table.rotate225{
-    transform: rotate(-135deg);
+    transform: rotate(45deg);
     
 }
 
@@ -99,7 +99,7 @@
 }
 
 .box-seat{
-    border: black 2px solid;
+    
     min-width: 2rem;
     min-height: 2rem;
 
@@ -107,9 +107,14 @@
 
 .seat{
     
-    background-color: black;
+    
     height: 2rem;
     width: 2rem;
+    background-color: #fff;
+
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
     
 }
 
@@ -118,18 +123,21 @@
     height: 100%;
     border-bottom-right-radius: 100%;
     border-top-right-radius: 100%;
+    border: solid black 1px;
    
     
-    background-color: #f00;
+    
 }
-/*
-.box-seat:nth-child(1) .seat{
-    transform: rotate(180deg);
-    background-color: green;
+
+/*--unseated seats---*/
+
+.guests{
+    display: flex;
+
 }
 
 
- Test */
+/*-- seats at table --*/
 
 .seats{
     cursor: move;  

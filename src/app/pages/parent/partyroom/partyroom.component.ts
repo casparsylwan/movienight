@@ -16,6 +16,7 @@ export class PartyroomComponent implements OnInit {
 
   //customer variables
   name:string="namn";
+  theTable:number= null;
 
   //Test2
 
@@ -46,12 +47,28 @@ export class PartyroomComponent implements OnInit {
    }
 
    public addTable(){
-      let nextTable = 1 + this.tables.length
-      this.tables.push({table:nextTable, left:[], rigth:[]});
+     
+    if(this.tables.length < 1){
+
+      this.tables.push({table:1, left:[], rigth:[]});
+
+    }else{
+      let a = this.tables.sort((table1, table2)=> table1.table - table2.table)[this.tables.length-1]
+      this.tables.push({table:a.table+1, left:[], rigth:[]});
+      
+    }
+     
+     
+      
    }
 
-   public removeTable(){
-     this.tables.pop()
+   public removeTable(tableNumber:number){
+     let tableIndex = this.tables.findIndex(table => table.table===tableNumber);
+     if(tableIndex!=-1){
+        let a = this.tables.splice(tableIndex,1);
+
+     }
+     this.theTable = null;
    }
   // [{
   //                 left:[
