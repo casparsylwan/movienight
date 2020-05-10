@@ -1,9 +1,210 @@
+<div 
+    cdkDropListGroup 
+    class="wrapper">
+    <!--Nav for adding and removing-->
+
+    <button (click)="addTable()">Nytt bord</button>
+    <button (click)="addRoundTable()">Nytt runtbord</button>
+    <div class="new-customer">
+        <input type="number" onfocus="this.value=''" [(ngModel)]="theTable">
+        <button (click)="removeTable(theTable)">tabort bord</button>
+    </div>
+    <div class="new-customer">
+        <input type="text" name="name" onfocus="this.value=''" [(ngModel)]="name">
+        <button (click)="addGuest()" >Ny gäst</button>
+    </div>
+    <div
+        cdkDropList
+        [cdkDropListData]="guests"
+        class="guests"
+        (cdkDropListDropped)="drop($event)">
+        <div class="box-guests" *ngFor="let seat of guests" cdkDrag>
+                <div class="seat">
+                    <div 
+                        class="backrest">
+                        <p>
+                            {{seat}}
+                        </p>                                       
+                    </div>
+                </div>
+            </div>
+    </div>
+<!--Diner- room- starts- here-->
+    <div 
+        
+        class="dining-hall">
+        <!--Round-Tablex-->
+        <ng-container *ngFor="let table of tables">
+            <div 
+                cdkDrag 
+                cdkDragBoundary=".dining-hall"
+                class="box round"
+                *ngIf="table.round">
+
+                <!--Table placement-->
+                                <div
+                                    cdkDropList
+                                    [cdkDropListData]="table.rigth"
+                                    class="seats round"
+                                    (cdkDropListDropped)="drop($event)">
+                                    <div class="box-seat" *ngFor="let seat of table.rigth" cdkDrag>
+                                        <div class="seat">
+                                            <div 
+                                                class="backrest">
+                                                <p>
+                                                    {{seat}}
+                                                </p>                                                                        
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                <!--Bench left --->  
+                
+                <!--Table placement-->
+                                <div
+                                    cdkDropList
+                                    [cdkDropListData]="table.left"
+                                    class="seats round"
+                                    (cdkDropListDropped)="drop($event)">
+                                    <div class="box-seat" *ngFor="let seat of table.left" cdkDrag>
+                                        <div class="seat">
+                                            <div 
+                                                class="backrest">
+                                                <p>
+                                                    {{seat}}
+                                                </p>                                                                        
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!--Bench left ---> 
+                            <!--Table placement-->
+                                <div
+                                cdkDropList
+                                [cdkDropListData]="table.top"
+                                class="seats round"
+                                (cdkDropListDropped)="drop($event)">
+                                <div class="box-seat top" *ngFor="let seat of table.top" cdkDrag>
+                                    <div class="seat">
+                                        <div 
+                                            class="backrest">
+                                            <p>
+                                                {{seat}}
+                                            </p>                                                                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <!--Bench left ---> 
+                        <!--Table placement-->
+                            <div
+                            cdkDropList
+                            [cdkDropListData]="table.down"
+                            class="seats round"
+                            (cdkDropListDropped)="drop($event)">
+                            <div class="box-seat down" *ngFor="let seat of table.down" cdkDrag>
+                                <div class="seat">
+                                    <div 
+                                        class="backrest">
+                                        <p>
+                                            {{seat}}
+                                        </p>                                                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Bench left --->  
+                                
+
+
+                <div                     
+                    class="table round">
+                {{ table.table }}
+                                
+                </div>                        
+            </div>
+            <!--square-table-->
+            <div
+                *ngIf="!table.round"
+                [className]="table.rotate"
+                cdkDragBoundary=".dining-hall"
+                cdkDrag>
+                
+                <div [className]="table.rotate">
+                    
+
+                     <!--Table placement-->
+                                    <div
+                                    cdkDropList
+                                    [cdkDropListData]="table.left"
+                                    class="seats"
+                                    (cdkDropListDropped)="drop($event)">
+                                    <div class="box-seat" *ngFor="let seat of table.left" cdkDrag>
+                                        <div class="seat">
+                                            <div 
+                                                class="backrest">
+                                                <p>
+                                                    {{seat}}
+                                                </p>
+                                                                        
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                    <!--Bench left --->
+                    
+
+                    <div                    
+                        [className]="handle" 
+                        cdkDragHandle>
+                        <svg  width="24px" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                        </svg>
+                        <p (click)="rotate(table)">{{table.table}} Rotate</p>   
+                    </div>
+
+                     <!--Table placement-->
+                                <div
+                                cdkDropList
+                                [cdkDropListData]="table.rigth"
+                                class="seats"
+                                (cdkDropListDropped)="drop($event)">
+                                <div class="box-seat" *ngFor="let seat of table.rigth" cdkDrag>
+                                    <div class="seat">
+                                        <div 
+                                            class="backrest">
+                                            <p>
+                                                {{seat}}
+                                            </p>
+                                                                    
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                <!--Bench left --->
+                    
+
+                    
+                </div>
+            </div>
+        </ng-container>    
+    </div>
+    
+
+
+</div>
+
+
+<!--
 <div
     cdkDropListGroup
     class="wrapper">
     <p>partyroom works!</p>
     <button (click)="addTable()">Nytt bord</button>
-    
+    <button (click)="addRoundTable()">Nytt runtbord</button>
     <div class="new-customer">
         <input type="number" onfocus="this.value=''" [(ngModel)]="theTable">
         <button (click)="removeTable(theTable)">tabort bord</button>
@@ -13,11 +214,15 @@
         <input type="text" name="name" onfocus="this.value=''" [(ngModel)]="name">
         <button (click)="addGuest()" >Ny gäst</button>
     </div>
-    <div
+    
+                <div
                     cdkDropList
                     [cdkDropListData]="guests"
                     class="guests"
                     (cdkDropListDropped)="drop($event)">
+
+                   
+
                     <div class="box-guests" *ngFor="let seat of guests" cdkDrag>
                         <div class="seat">
                             <div 
@@ -30,23 +235,33 @@
                         </div>
                     </div>
                 </div>
+
+
     
     <div 
         class="container">
-        <div 
-             
+        
+        <template *ngFor="let table of tables">
+              <div 
+                    *ngIf="table.round"
+                    class="round-table"
+                >
+                </div>   
+        </template>
+        <div              
             cdkDragBoundary=".container"
-            class="box" >           
-           
+            class="box" >                      
         <!--Droplist with array of arrays-->
-
+<!--
         <div
             *ngFor="let row of tables" 
             cdkDrag 
             cdkDragBoundary=".container"
             class="box" >
            
-            <div [className]="row.rotate" >
+            <div 
+                *ngIf="!row.round"
+                [className]="row.rotate" >
                
 
                 <div
@@ -69,7 +284,7 @@
 
 
                 <div [className]="handle" 
-                    cdkDragHandle>{{ row.table }}
+                     cdkDragHandle>{{ row.table }}
                     <svg  width="24px" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
                       <path d="M0 0h24v24H0z" fill="none"></path>
@@ -92,8 +307,6 @@
                         
                     </div>
                 </div>
-
-
             </div>
 
 
@@ -103,7 +316,7 @@
        
     
 </div>
-
+-->
 <!---
     [ngStyle] ="{ 'transform-origin': 'center center',
                               'transform' : 'rotate(' + deg + 'deg)',

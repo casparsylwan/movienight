@@ -22,7 +22,7 @@ export class PartyroomComponent implements OnInit {
 
   guests:string[] = []
 
-   tables:{table:number, rotate?:string, deg:number ,left:string[], rigth:string[]}[] = [];
+   tables:{table:number, round?:boolean, rotate?:string, deg:number, top?:string[], down?:string[] ,left:string[], rigth:string[]}[] = [];
 
    public addGuest(){
 
@@ -55,13 +55,22 @@ export class PartyroomComponent implements OnInit {
 
     }else{
       let a = this.tables.sort((table1, table2)=> table1.table - table2.table)[this.tables.length-1]
-      this.tables.push({table:a.table+1, rotate:"table rotate", deg:0, left:[], rigth:[]});
-      
-    }
-     
-     
-      
+      this.tables.push({table:a.table+1, rotate:"table rotate", deg:0, left:[], rigth:[]});  
+    }    
    }
+
+   public addRoundTable(){
+     console.log("Hej");
+    if(this.tables.length < 1){
+
+      this.tables.push({table:1, round:true, rotate:"table rotate", deg:0 ,left:[], rigth:[], top:[], down:[]});
+      console.log(this.tables);
+    }else{
+      let newTable = this.tables.sort((table1, table2)=> table1.table - table2.table)[this.tables.length-1]
+      this.tables.push({table:newTable.table+1, round:true, rotate:"table rotate", deg:0, left:[], rigth:[], top:[], down:[]});  
+    }    
+   }
+
 
    public removeTable(tableNumber:number){
      let tableIndex = this.tables.findIndex(table => table.table===tableNumber);

@@ -4,12 +4,14 @@
     background-color: #971;
 }
 
-.container{
+.dining-hall{
     
     width: 90%;
     height: 90vh;
     margin: 2rem auto;
     background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
 
 }
 
@@ -18,11 +20,47 @@
     
     padding: 2rem;
     width: fit-content;
-    justify-content: center;
+    height: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+/* Roundtable chair placment */
+.box.round{
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas: 
+    ".     top3   ."
+    "left1 table5 right2"
+    " .     down4    .";
+}
+
+.seats.round:nth-child(1){
+    grid-area: left1 ;
+}
+
+.seats.round:nth-child(2){
+    grid-area: right2 ;
+}
+
+.seats.round:nth-child(3){
+    grid-area: top3 ;
+    
+}
+
+
+
+.seats.round:nth-child(4){
+    grid-area: down4;
+}
+
+.table.round{
+    grid-area: table5;
+    background-color: #fff;
+}
+
 
 /*--Table---*/
 
@@ -34,42 +72,63 @@
     height: 10rem;
     width: 5rem;
     margin: 0.3rem;
-    transition: transform 1s;
+    
 
 }
+
+
+.table.round{
+    
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    
+   
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
 
 /*--Turning the table---*/
 
 .table.rotate45{
     transform: rotate(45deg);
+    transition: transform 1s;
 }
 
 .table.rotate90{
     transform: rotate(90deg);
+    transition: transform 1s;
 }
 
 .table.rotate135{
     transform: rotate(-45deg);
+    transition: transform 1s;
 }
 
 .table.rotate180{
     transform: rotate(0deg);
+    transition: transform 1s;
     
     
 }
 
 .table.rotate225{
     transform: rotate(45deg);
+    transition: transform 1s;
     
 }
 
 .table.rotate270{
     transform: rotate(-90deg);
+    transition: transform 1s;
     
 }
 
 .table.rotate315{
     transform: rotate(-45deg);
+    transition: transform 1s;
    
 }
 
@@ -106,15 +165,10 @@
 }
 
 .seat{
-    
-    
+
     height: 2rem;
     width: 2rem;
-    background-color: #fff;
-
-    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
-                0 8px 10px 1px rgba(0, 0, 0, 0.14),
-                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    
     
 }
 
@@ -123,11 +177,25 @@
     height: 100%;
     border-bottom-right-radius: 100%;
     border-top-right-radius: 100%;
-    border: solid black 1px;
-   
-    
-    
+    border: solid black 1px;   
+
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
+
+.seats.round:nth-child(3) .backrest{
+
+    transform: rotate(-90deg);
+
+}
+
+.seats.round:nth-child(4) .backrest{
+
+    transform: rotate(90deg);
+}
+
+
 
 /*--unseated seats---*/
 
@@ -147,9 +215,11 @@
     border-radius: 4px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    
+    
     
 }
+
 
 .seats:nth-child(1) .box-seat .seat{
     transform: rotate(180deg);
@@ -159,6 +229,14 @@
     transform: rotate(180deg);
     vertical-align: top;
 }
+
+.seats.round:nth-child(3), .seats.round:nth-child(4){
+    
+    flex-direction: row;
+    justify-self: center;
+    
+}
+
 
 
 
