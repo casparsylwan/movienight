@@ -17,13 +17,13 @@ export class PartyroomComponent implements OnInit {
   //customer variables
   name:string="";
   theTable:number= null;
-
-  //Test2
-
   guests:string[] = []
+  tables:{table:number, round?:boolean, rotate?:string, deg:number, top?:string[], down?:string[] ,left:string[], rigth:string[]}[] = [];
 
-   tables:{table:number, round?:boolean, rotate?:string, deg:number, top?:string[], down?:string[] ,left:string[], rigth:string[]}[] = [];
+  
 
+   
+  //Methods for 
    public addGuest(){
 
     if(this.name.length<1){
@@ -43,8 +43,10 @@ export class PartyroomComponent implements OnInit {
    public removeGuest(name:string){
 
     let guestIndex = this.guests.findIndex( guest => guest === name);
-    console.log(guestIndex)
-    
+      if(guestIndex!=-1){
+        this.guests.splice( guestIndex, 1);
+      }
+       
    }
 
    public addTable(){
@@ -63,11 +65,11 @@ export class PartyroomComponent implements OnInit {
      console.log("Hej");
     if(this.tables.length < 1){
 
-      this.tables.push({table:1, round:true, rotate:"table rotate", deg:0 ,left:[], rigth:[], top:[], down:[]});
+      this.tables.push({table:1, round:true, rotate:"table rotate", deg:0 ,left:["b"], rigth:["c"], top:[], down:[]});
       console.log(this.tables);
     }else{
       let newTable = this.tables.sort((table1, table2)=> table1.table - table2.table)[this.tables.length-1]
-      this.tables.push({table:newTable.table+1, round:true, rotate:"table rotate", deg:0, left:[], rigth:[], top:[], down:[]});  
+      this.tables.push({table:newTable.table+1, round:true, rotate:"table rotate", deg:0, left:["a"], rigth:[], top:[], down:[]});  
     }    
    }
 
@@ -75,7 +77,14 @@ export class PartyroomComponent implements OnInit {
    public removeTable(tableNumber:number){
      let tableIndex = this.tables.findIndex(table => table.table===tableNumber);
      if(tableIndex!=-1){
-        let a = this.tables.splice(tableIndex,1);
+        let removedTable = this.tables.splice(tableIndex,1);
+        if(!removedTable[0].round){
+          this.guests = [...this.guests, ...removedTable[0].left, ...removedTable[0].rigth]
+        }else{
+          this.guests = [...this.guests, ...removedTable[0].left, ...removedTable[0].rigth, ...removedTable[0].top, ...removedTable[0].down]
+        }
+        
+        console.log(removedTable);
 
      }
      this.theTable = null;

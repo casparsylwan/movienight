@@ -13,6 +13,10 @@
         <input type="text" name="name" onfocus="this.value=''" [(ngModel)]="name">
         <button (click)="addGuest()" >Ny gäst</button>
     </div>
+    <div class="remove-customer">
+        <input matInput type="text" name="guest" onfocus="this.value=''" #guest>
+        <button (click)="removeGuest(guest.value)" (click)="guest.value=''" >ta bort gäst</button>
+    </div>
     <div
         cdkDropList
         [cdkDropListData]="guests"
