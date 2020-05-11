@@ -18,7 +18,7 @@
 /*Table area*/
 .box{
     
-    padding: 2rem;
+    padding: 1rem 2rem 1rem 2rem;
     width: fit-content;
     height: fit-content;
     display: flex;
