@@ -41,6 +41,7 @@ export class MovieSelectionComponent implements OnInit {
   dateSetBoolean:boolean = false;
   numberOfTicketChoosen:boolean = false;
 
+  scroolMoviesTo:number = 0;
 
   //ClassNames
   
@@ -130,6 +131,16 @@ export class MovieSelectionComponent implements OnInit {
     this.customersEvent.emit(this.customers);
     this.dateSetBooleanEvent.emit(this.dateSetBoolean);
     this.numberOfTicketChoosenEvent.emit(this.numberOfTicketChoosen);
+    
+  }
+
+  scrollToMovie(id:number)
+  {
+    let elem = document.querySelector('#movie-'+ id);
+    let rect = elem.getBoundingClientRect();
+    elem.scrollIntoView({ behavior: 'smooth' })
+    // console.log(rect);
+     this.scroolMoviesTo = id;
     
   }
 

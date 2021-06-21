@@ -51,10 +51,27 @@
             </div>                   
         </div>
     </div>
-    
+    <div class="arrow">
+        <div *ngIf="scroolMoviesTo != 0" (click)="scrollToMovie(0)" class="arrow-left">
+                <
+        </div>
+        <div *ngIf="scroolMoviesTo != 5" (click)="scrollToMovie(5)" class="arrow-right">
+                >
+        </div>
+    </div>     
+   
     <div [className]="down" *ngIf="!(numberOfTicketChoosen)">
-        <div class="movie-bar" *ngFor="let img of movieInfo.movies; let i = index">
-            <span (click)="showTrailer(i)">
+        <!-- <div class="arrow">
+            <div *ngIf="scroolMoviesTo != 10" (click)="scrollToMovie(0)" class="arrow-left">
+                    <
+            </div>
+            <div *ngIf="scroolMoviesTo != 15" (click)="scrollToMovie(5)" class="arrow-right">
+                    >
+            </div>
+        </div>      -->
+            <div [ngStyle]="{'transform': 'translateX( '+ scroolMoviesTo +'px)'}" class="movie-bar" *ngFor="let img of movieInfo.movies; let i = index">
+           
+            <span id="movie-{{ i }}" (click)="showTrailer(i)">
                 <img [src]="img.img" [alt]="img.name">
             </span>
         </div>
